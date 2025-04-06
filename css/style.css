@@ -663,16 +663,6 @@ footer {
 /* Prevent hover effect on the main article within a single post page */
 /* This assumes you might add a 'single-post' class to the body tag */
 /* of blog/posts/example-post.html, which is outside the scope of this task */
-body.single-post main > article {
-    background-color: transparent;
-    padding: 0;
-    box-shadow: none;
-    transform: none;
-}
-body.single-post main > article:hover {
-    transform: none;
-    box-shadow: none;
-}
 
 /* Featured Projects Section */
 #featured-projects {
@@ -1149,15 +1139,15 @@ select:focus {
 .post-navigation {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
-  padding-top: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--color-border-primary);
 }
 
 .post-navigation a {
   color: var(--color-text-secondary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .post-navigation a:hover {
@@ -1807,30 +1797,6 @@ select:focus {
   }
 }
 
-@media (max-width: 480px) {
-  .skill-tab {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-  
-  .hexagon {
-    width: 110px;
-    height: 130px;
-  }
-  
-  .skill-icon {
-    font-size: 1.5rem;
-  }
-  
-  .hexagon-content h4 {
-    font-size: 0.8rem;
-  }
-  
-  .skill-dot {
-    width: 6px;
-    height: 6px;
-  }
-}
 @media (max-width: 768px) {
   .skills-tabs {
     flex-direction: row;
@@ -1862,6 +1828,11 @@ select:focus {
 }
 
 @media (max-width: 480px) {
+  .skill-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
   .skills-honeycomb {
     max-width: 100%;
   }
@@ -1881,5 +1852,10 @@ select:focus {
   
   .hexagon-content h4 {
     font-size: 0.8rem;
+  }
+  
+  .skill-dot {
+    width: 6px;
+    height: 6px;
   }
 }
