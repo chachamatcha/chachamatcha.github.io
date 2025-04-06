@@ -1,0 +1,10 @@
+This is a placeholder file for JD Paletto's resume PDF.
+
+Please replace this file with the actual PDF version of the resume.
+
+To create a PDF from the resume.html page:
+1. Open the resume.html page in a browser
+2. Use the "Print Resume" button or press Ctrl+P (Cmd+P on Mac)
+3. Select "Save as PDF" as the destination
+4. Save it as "JDPaletto-Resume.pdf" in the "files" directory
+5. Remove this .txt extension so the filename is just "JDPaletto-Resume.pdf"
