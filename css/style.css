@@ -660,10 +660,6 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
 }
 
-/* Prevent hover effect on the main article within a single post page */
-/* This assumes you might add a 'single-post' class to the body tag */
-/* of blog/posts/example-post.html, which is outside the scope of this task */
-
 /* Featured Projects Section */
 #featured-projects {
   padding: 3rem 0;
@@ -1147,7 +1143,6 @@ select:focus {
 .post-navigation a {
   color: var(--color-text-secondary);
   text-decoration: none;
-  transition: all 0.2s ease;
 }
 
 .post-navigation a:hover {
@@ -1820,11 +1815,6 @@ select:focus {
   .hexagon-content h4 {
     font-size: 0.9rem;
   }
-  
-  .skill-dot {
-    width: 6px;
-    height: 6px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -1852,10 +1842,5 @@ select:focus {
   
   .hexagon-content h4 {
     font-size: 0.8rem;
-  }
-  
-  .skill-dot {
-    width: 6px;
-    height: 6px;
   }
 }
