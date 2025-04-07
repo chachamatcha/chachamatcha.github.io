@@ -351,7 +351,7 @@ footer {
 }
 .text-readable {
   line-height: 1.8;
-  max-width: 65ch;
+  max-width: 100%; /* Changed from 65ch to 100% to fill more of the card */
   margin-bottom: var(--spacing-6);
 }
 .text-style-common {
