@@ -164,17 +164,26 @@ function initHeroTypingEffect() {
 }
 
 /**
- * Adds a typewriter effect to resume bullet points, typing them out sequentially
+ * Adds a typewriter effect to resume bullet points, typing them all out at the same time
  */
 function initResumeBulletTypingEffect() {
-  // Target the bullet points in the experience section
-  const resumeBullets = document.querySelectorAll('#experience ul li');
+  // Target all resume-related bullet points
+  const resumeSections = ['#experience', '#awards', '#education', '#licenses', '#interests'];
+  let allBullets = [];
   
-  if (resumeBullets.length === 0) return;
+  // Collect all bullets from relevant sections
+  resumeSections.forEach(section => {
+    const sectionBullets = document.querySelectorAll(`${section} ul li`);
+    if (sectionBullets.length > 0) {
+      allBullets = [...allBullets, ...sectionBullets];
+    }
+  });
+  
+  if (allBullets.length === 0) return;
   
   // Store original text and clear content
   const bulletsContent = [];
-  resumeBullets.forEach(bullet => {
+  allBullets.forEach(bullet => {
     bulletsContent.push(bullet.textContent);
     bullet.textContent = '';
     // Add a class to help with styling
@@ -192,24 +201,16 @@ function initResumeBulletTypingEffect() {
   `;
   document.head.appendChild(styleElement);
   
-  // Type each bullet point sequentially
-  let currentBullet = 0;
-  const typeBullet = (bulletIndex) => {
-    if (bulletIndex >= resumeBullets.length) return;
-    
-    const bullet = resumeBullets[bulletIndex];
-    const text = bulletsContent[bulletIndex];
+  // Function to type a single bullet
+  const typeBullet = (bullet, text) => {
     let charIndex = 0;
     
-    // Type the current bullet point character by character
+    // Type the bullet point character by character
     const typeChar = () => {
       if (charIndex < text.length) {
         bullet.textContent += text.charAt(charIndex);
         charIndex++;
-        setTimeout(typeChar, 5); // Faster typing for bullet points
-      } else {
-        // Move to the next bullet after a pause
-        setTimeout(() => typeBullet(bulletIndex + 1), 200);
+        setTimeout(typeChar, 5); // Fast typing for bullet points
       }
     };
     
@@ -217,20 +218,25 @@ function initResumeBulletTypingEffect() {
     typeChar();
   };
   
-  // Start the typing effect with a delay when element enters viewport
+  // Start the typing effect for all bullets simultaneously
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setTimeout(() => typeBullet(0), 500);
+        // Start typing all bullets with a slight delay
+        setTimeout(() => {
+          allBullets.forEach((bullet, index) => {
+            typeBullet(bullet, bulletsContent[index]);
+          });
+        }, 500);
         observer.disconnect();
       }
     });
   }, { threshold: 0.1 });
   
-  // Observe the experience section
-  const experienceSection = document.querySelector('#experience');
-  if (experienceSection) {
-    observer.observe(experienceSection);
+  // Observe the resume section
+  const resumeSection = document.querySelector('main');
+  if (resumeSection) {
+    observer.observe(resumeSection);
   }
 }
 
