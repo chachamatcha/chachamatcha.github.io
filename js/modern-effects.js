@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add typing effect to hero section
   initHeroTypingEffect();
   
+  // Add typing effect to resume bullet points
+  initResumeBulletTypingEffect();
+  
   // Initialize floating elements
   initFloatingElements();
 });
@@ -145,7 +148,7 @@ function initHeroTypingEffect() {
     heroHeading.appendChild(container);
     
     let i = 0;
-    const typingSpeed = 50; // milliseconds per character
+    const typingSpeed = 25; // milliseconds per character
     
     function typeWriter() {
       if (i < text.length) {
@@ -157,6 +160,77 @@ function initHeroTypingEffect() {
     
     // Slight delay before starting the animation
     setTimeout(typeWriter, 500);
+  }
+}
+
+/**
+ * Adds a typewriter effect to resume bullet points, typing them out sequentially
+ */
+function initResumeBulletTypingEffect() {
+  // Target the bullet points in the experience section
+  const resumeBullets = document.querySelectorAll('#experience ul li');
+  
+  if (resumeBullets.length === 0) return;
+  
+  // Store original text and clear content
+  const bulletsContent = [];
+  resumeBullets.forEach(bullet => {
+    bulletsContent.push(bullet.textContent);
+    bullet.textContent = '';
+    // Add a class to help with styling
+    bullet.classList.add('typing-bullet');
+  });
+  
+  // Create a style for the typing effect
+  const styleElement = document.createElement('style');
+  styleElement.id = 'resume-typing-effect-style';
+  styleElement.textContent = `
+    .typing-bullet {
+      white-space: normal;
+      overflow: hidden;
+    }
+  `;
+  document.head.appendChild(styleElement);
+  
+  // Type each bullet point sequentially
+  let currentBullet = 0;
+  const typeBullet = (bulletIndex) => {
+    if (bulletIndex >= resumeBullets.length) return;
+    
+    const bullet = resumeBullets[bulletIndex];
+    const text = bulletsContent[bulletIndex];
+    let charIndex = 0;
+    
+    // Type the current bullet point character by character
+    const typeChar = () => {
+      if (charIndex < text.length) {
+        bullet.textContent += text.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeChar, 15); // Faster typing for bullet points
+      } else {
+        // Move to the next bullet after a pause
+        setTimeout(() => typeBullet(bulletIndex + 1), 300);
+      }
+    };
+    
+    // Start typing this bullet
+    typeChar();
+  };
+  
+  // Start the typing effect with a delay when element enters viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => typeBullet(0), 500);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  // Observe the experience section
+  const experienceSection = document.querySelector('#experience');
+  if (experienceSection) {
+    observer.observe(experienceSection);
   }
 }
 
