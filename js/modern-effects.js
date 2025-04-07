@@ -108,28 +108,63 @@ function initScrollAnimations() {
 }
 
 /**
- * Adds a typing effect to the hero section headline
+ * Adds a typing effect to the hero section headline with cursor following the last character
  */
 function initHeroTypingEffect() {
   const heroHeading = document.querySelector('#hero h1');
   
   if (heroHeading) {
     const text = heroHeading.textContent;
+    
+    // Create a container for the typing effect
+    const container = document.createElement('span');
+    container.className = 'typing-container';
+    
+    // Create a span for the typed text
+    const typedTextSpan = document.createElement('span');
+    typedTextSpan.className = 'typed-text';
+    
+    // Create a span for the cursor
+    const cursorSpan = document.createElement('span');
+    cursorSpan.className = 'typing-cursor';
+    cursorSpan.innerHTML = '|';
+    cursorSpan.style.color = 'var(--color-accent-purple)';
+    cursorSpan.style.fontWeight = 'bold';
+    cursorSpan.style.animation = 'blink 0.75s step-end infinite';
+    
+    // Add the CSS for cursor blinking animation
+    if (!document.querySelector('#cursor-animation-style')) {
+      const style = document.createElement('style');
+      style.id = 'cursor-animation-style';
+      style.textContent = `
+        @keyframes blink {
+          from, to { opacity: 1; }
+          50% { opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    
+    // Append elements to the DOM
+    container.appendChild(typedTextSpan);
+    container.appendChild(cursorSpan);
+    
+    // Clear the heading and add our container
     heroHeading.innerHTML = '';
-    heroHeading.style.borderRight = '0.08em solid var(--color-accent-purple)';
+    heroHeading.appendChild(container);
     
     let i = 0;
     const typingSpeed = 50; // milliseconds per character
     
     function typeWriter() {
       if (i < text.length) {
-        heroHeading.innerHTML += text.charAt(i);
+        typedTextSpan.textContent += text.charAt(i);
         i++;
         setTimeout(typeWriter, typingSpeed);
       } else {
-        // Remove the cursor when typing is complete
+        // Remove the cursor when typing is complete (optional)
         setTimeout(() => {
-          heroHeading.style.borderRight = 'none';
+          cursorSpan.style.display = 'none';
         }, 1000);
       }
     }
