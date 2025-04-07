@@ -116,6 +116,44 @@ function initHeroTypingEffect() {
   if (heroHeading) {
     const text = heroHeading.textContent;
     
+    // Add CSS to ensure text-align is center or left instead of right
+    const styleElement = document.createElement('style');
+    styleElement.id = 'typing-effect-style';
+    styleElement.textContent = `
+      #hero h1 {
+        text-align: center;
+        white-space: nowrap;
+        display: inline-block;
+        width: 100%;
+        overflow: visible;
+      }
+      
+      .typing-container {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        width: auto;
+        margin: 0 auto;
+      }
+      
+      .typed-text {
+        display: inline;
+      }
+      
+      .typing-cursor {
+        display: inline;
+        position: relative;
+        margin-left: 2px;
+        animation: blink 0.75s step-end infinite;
+      }
+      
+      @keyframes blink {
+        from, to { opacity: 1; }
+        50% { opacity: 0; }
+      }
+    `;
+    document.head.appendChild(styleElement);
+    
     // Create a container for the typing effect
     const container = document.createElement('span');
     container.className = 'typing-container';
@@ -130,20 +168,6 @@ function initHeroTypingEffect() {
     cursorSpan.innerHTML = '|';
     cursorSpan.style.color = 'var(--color-accent-purple)';
     cursorSpan.style.fontWeight = 'bold';
-    cursorSpan.style.animation = 'blink 0.75s step-end infinite';
-    
-    // Add the CSS for cursor blinking animation
-    if (!document.querySelector('#cursor-animation-style')) {
-      const style = document.createElement('style');
-      style.id = 'cursor-animation-style';
-      style.textContent = `
-        @keyframes blink {
-          from, to { opacity: 1; }
-          50% { opacity: 0; }
-        }
-      `;
-      document.head.appendChild(style);
-    }
     
     // Append elements to the DOM
     container.appendChild(typedTextSpan);
