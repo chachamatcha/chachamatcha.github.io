@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h2>JOHN DANIEL "JD" PALETTO</h2>
+        <h2 class="text-primary">JOHN DANIEL "JD" PALETTO</h2>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -20,74 +20,74 @@
             </ul>
         </nav>
     </header>
-<section id="hero">
-    <h1>MY PROJECTS</h1>
-    <h2>A collection of my work</h2>
-    <p>Explore a selection of my data science and machine learning projects that showcase my expertise and approach to problem-solving.</p>
+<section id="hero" class="container-lg animate-fadeIn text-center p-5 content-center">
+    <h1 class="text-3xl gradient-primary text-gradient">MY PROJECTS</h1>
+    <h2 class="text-xl mt-3 text-accent-blue font-semibold">A collection of my work</h2>
+    <p class="text-secondary mt-2 p-standard w-container-md mx-auto text-style-common">Explore a selection of my data science and machine learning projects that showcase my expertise and approach to problem-solving.</p>
 </section>
 
 
-<main>
-        <section id="project-list">
-            <h2>My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
+<main class="container-lg mt-4">
+        <section id="project-list" class="bg-subtle rounded p-4 animate-fadeIn">
+            <h2 class="section-heading heading-accent heading-accent-blue mb-4">My Projects</h2>
+            <div class="projects-grid gap-3 mt-3 animate-slideUp animate-delay-1">
+                <div class="project-card card-style-common hover-lift shadow-sm card-accent-blue overflow-hidden-card">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=ML+Dashboard" alt="Machine Learning Dashboard">
+                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=ML+Dashboard" alt="Machine Learning Dashboard" class="w-full rounded-t">
                     </div>
-                    <div class="project-content">
-                        <h3>Machine Learning Dashboard</h3>
-                        <p>Real-time analytics platform for monitoring model performance and drift detection.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>TensorFlow</span>
-                            <span>React</span>
+                    <div class="card-content p-3">
+                        <h3 class="text-lg">Machine Learning Dashboard</h3>
+                        <p class="text-secondary mt-2">Real-time analytics platform for monitoring model performance and drift detection.</p>
+                        <div class="project-tech flex flex-wrap mt-3 mb-3 gap-2">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">React</span>
                         </div>
-                        <div class="project-links">
-                            <a href="ml-dashboard.html" class="btn-sm">View Details</a>
-                            <a href="https://github.com/jdpaletto/ml-dashboard" class="github-link" target="_blank">
-                                <i class="fab fa-github"></i>
+                        <div class="project-links flex-between mt-3">
+                            <a href="ml-dashboard.html" class="button-small interactive-element animate-standard">View Details</a>
+                            <a href="https://github.com/jdpaletto/ml-dashboard" class="github-link social-icon" target="_blank">
+                                <i class="fab fa-github icon-blue"></i>
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card card-style-common transform-hover card-shadow card-accent-green overflow-hidden-card">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=API+Service" alt="Predictive Analytics API">
+                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=API+Service" alt="Predictive Analytics API" class="w-full rounded-t">
                     </div>
-                    <div class="project-content">
-                        <h3>Predictive Analytics API</h3>
-                        <p>Scalable REST API for time-series prediction and anomaly detection.</p>
-                        <div class="project-tech">
-                            <span>FastAPI</span>
-                            <span>scikit-learn</span>
-                            <span>Docker</span>
+                    <div class="card-content p-3">
+                        <h3 class="text-lg">Predictive Analytics API</h3>
+                        <p class="text-secondary mt-2">Scalable REST API for time-series prediction and anomaly detection.</p>
+                        <div class="project-tech flex-wrap mt-3 mb-3">
+                            <span class="tech-tag tech-tag-green">FastAPI</span>
+                            <span class="tech-tag tech-tag-green">scikit-learn</span>
+                            <span class="tech-tag tech-tag-green">Docker</span>
                         </div>
-                        <div class="project-links">
-                            <a href="predictive-api.html" class="btn-sm">View Details</a>
-                            <a href="https://github.com/jdpaletto/predictive-api" class="github-link" target="_blank">
-                                <i class="fab fa-github"></i>
+                        <div class="project-links flex-between mt-3">
+                            <a href="predictive-api.html" class="button-small interactive-element animate-standard">View Details</a>
+                            <a href="https://github.com/jdpaletto/predictive-api" class="github-link hover-bright" target="_blank">
+                                <i class="fab fa-github icon-green"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card card-style-common transform-hover card-shadow card-accent-pink overflow-hidden-card">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=NLP+Model" alt="NLP Text Classifier">
+                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=NLP+Model" alt="NLP Text Classifier" class="w-full rounded-t">
                     </div>
-                    <div class="project-content">
-                        <h3>NLP Text Classifier</h3>
-                        <p>Multi-class text classification system for customer feedback categorization.</p>
-                        <div class="project-tech">
-                            <span>PyTorch</span>
-                            <span>BERT</span>
-                            <span>Flask</span>
+                    <div class="card-content p-3">
+                        <h3 class="text-lg">NLP Text Classifier</h3>
+                        <p class="text-secondary mt-2">Multi-class text classification system for customer feedback categorization.</p>
+                        <div class="project-tech flex-wrap mt-3 mb-3">
+                            <span class="tech-tag tech-tag-pink">PyTorch</span>
+                            <span class="tech-tag tech-tag-pink">BERT</span>
+                            <span class="tech-tag tech-tag-pink">Flask</span>
                         </div>
-                        <div class="project-links">
-                            <a href="nlp-classifier.html" class="btn-sm">View Details</a>
-                            <a href="https://github.com/jdpaletto/nlp-classifier" class="github-link" target="_blank">
-                                <i class="fab fa-github"></i>
+                        <div class="project-links flex-between mt-3">
+                            <a href="nlp-classifier.html" class="button-small interactive-element animate-standard">View Details</a>
+                            <a href="https://github.com/jdpaletto/nlp-classifier" class="github-link hover-bright" target="_blank">
+                                <i class="fab fa-github icon-pink"></i>
                             </a>
                         </div>
                     </div>
@@ -97,14 +97,14 @@
     </main>
 
     <footer>
-      <div class="footer-container">
-        <div class="footer-social">
-          <a href="https://github.com/jdpaletto" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/jdpaletto" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://twitter.com/jdpaletto" target="_blank"><i class="fab fa-twitter"></i></a>
+      <div class="footer-container flex-between container-lg">
+        <div class="footer-social flex-center">
+          <a href="https://github.com/jdpaletto" target="_blank" class="social-icon"><i class="fab fa-github icon-style"></i></a>
+          <a href="https://linkedin.com/in/jdpaletto" target="_blank" class="social-icon"><i class="fab fa-linkedin icon-style icon-blue"></i></a>
+          <a href="https://twitter.com/jdpaletto" target="_blank" class="social-icon"><i class="fab fa-twitter icon-style icon-blue"></i></a>
         </div>
         <div class="footer-info">
-          <p>&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p>
+          <p class="text-secondary">&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p>
         </div>
       </div>
     </footer>

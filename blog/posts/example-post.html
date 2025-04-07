@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h2>JOHN DANIEL "JD" PALETTO</h2>
+        <h2 class="text-primary">JOHN DANIEL "JD" PALETTO</h2>
         <nav>
             <ul>
                 <li><a href="../../index.html">Home</a></li>
@@ -20,32 +20,32 @@
             </ul>
         </nav>
     </header>
-<section id="hero">
-    <h1>BLOG POST</h1>
-    <h2>Insights & Perspectives</h2>
-    <p>Exploring ideas and sharing knowledge in data science and machine learning.</p>
+<section id="hero" class="container-lg animate-fadeIn content-center">
+    <h1 class="text-3xl gradient-primary text-gradient">BLOG POST</h1>
+    <h2 class="text-xl mt-3 text-accent-blue">Insights & Perspectives</h2>
+    <p class="text-secondary mt-2 text-style-common content-padded">Exploring ideas and sharing knowledge in data science and machine learning.</p>
 </section>
 
 
 <main>
-        <article class="blog-post">
-            <header class="blog-post-header">
-                <h1>[Example Post Title]</h1>
-                <p class="post-date"><em>Published on: [Date]</em></p>
+        <article class="blog-post container-sm animate-fadeIn content-padded">
+            <header class="blog-post-header mb-4 pb-2 card-accent-blue">
+                <h1 class="text-2xl text-gradient gradient-primary">[Example Post Title]</h1>
+                <p class="post-date text-secondary mt-2"><em>Published on: [Date]</em></p>
             </header>
             
-            <section class="blog-post-content">
-                <p>
+            <section class="blog-post-content card-style-common bg-subtle rounded shadow-sm animate-fadeIn animate-delay-1 content-padded">
+                <p class="text-style-common">
                     [This is the first paragraph of the example blog post. Introduce the topic here.]
                 </p>
                 
-                <p>
+                <p class="text-style-common">
                     [This is the second paragraph. Elaborate on the topic, provide details, examples, or code snippets.]
                 </p>
                 
-                <h2>Code Example</h2>
+                <h2 class="text-accent-blue mt-4 mb-2">Code Example</h2>
                 
-                <pre><code>
+                <pre class="rounded-md bg-card p-3 shadow-sm animate-standard hover-lift"><code>
 // Example code snippet placeholder
 function greet(name) {
   console.log(`Hello, ${name}!`);
@@ -58,28 +58,31 @@ function greet(name) {
             </section>
             
             <footer>
-                <p>
-                    Tags: <a href="#">javascript</a>, <a href="#">coding</a>, <a href="#">tutorial</a>
+                <p class="mt-4">
+                    Tags:
+                    <a href="#" class="text-accent-blue animate-standard">javascript</a>,
+                    <a href="#" class="text-accent-green animate-standard">coding</a>,
+                    <a href="#" class="text-accent-pink animate-standard">tutorial</a>
                 </p>
             </footer>
         </article>
         
-        <nav class="post-navigation">
-            <a href="#previous-post" class="prev-post">&laquo; Previous Post</a>
-            <a href="../index.html">Back to Blog Index</a>
-            <a href="#next-post" class="next-post">Next Post &raquo;</a>
+        <nav class="post-navigation flex-between p-3 mt-5 rounded shadow-sm bg-subtle-transparent animate-fadeIn animate-delay-2">
+            <a href="#previous-post" class="prev-post hover-translate-x-subtle animate-standard">&laquo; Previous Post</a>
+            <a href="../index.html" class="button-small hover-scale animate-standard">Back to Blog Index</a>
+            <a href="#next-post" class="next-post hover-translate-x animate-standard">Next Post &raquo;</a>
         </nav>
     </main>
 
     <footer>
-      <div class="footer-container">
-        <div class="footer-social">
-          <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/jdpaletto" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+      <div class="footer-container flex-between container-lg">
+        <div class="footer-social flex-center">
+          <a href="https://github.com/yourusername" target="_blank" class="social-icon animate-standard"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/jdpaletto" target="_blank" class="social-icon animate-standard"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com/yourusername" target="_blank" class="social-icon animate-standard"><i class="fab fa-twitter"></i></a>
         </div>
         <div class="footer-info">
-          <p>&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p>
+          <p class="text-secondary">&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p>
         </div>
       </div>
     </footer>
