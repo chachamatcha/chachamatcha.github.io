@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Example Post Title] - John Daniel "JD" Paletto's Blog</title>
-    <link rel="stylesheet" href="../../css/style.min.css">
+    <title>Machine Learning in Production - John Daniel "JD" Paletto's Blog</title>
+    <link rel="stylesheet" href="../../css/modern-theme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+    <meta name="description" content="Exploring machine learning in production environments - challenges, best practices, and implementation strategies">
 </head>
 <body>
     <header>
-        <h2 class="text-primary">JOHN DANIEL "JD" PALETTO</h2>
-        <nav>
+        <h2 class="text-gradient">JOHN DANIEL "JD" PALETTO</h2>
+        <nav aria-label="Main navigation">
             <ul>
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../projects/index.html">Projects</a></li>
@@ -20,71 +22,108 @@
             </ul>
         </nav>
     </header>
-<section id="hero" class="container-lg animate-fadeIn content-center">
-    <h1 class="text-3xl gradient-primary text-gradient">BLOG POST</h1>
-    <h2 class="text-xl mt-3 text-accent-blue">Insights & Perspectives</h2>
-    <p class="text-secondary mt-2 text-style-common content-padded">Exploring ideas and sharing knowledge in data science and machine learning.</p>
-</section>
 
-
+    <!-- Background gradient animation - inspired by GitHub Copilot's site -->
+    <div class="background-gradient"></div>
 <main>
-        <article class="blog-post container-sm animate-fadeIn content-padded">
-            <header class="blog-post-header mb-4 pb-2 card-accent-blue">
-                <h1 class="text-2xl text-gradient gradient-primary">[Example Post Title]</h1>
-                <p class="post-date text-secondary mt-2"><em>Published on: [Date]</em></p>
+    <section id="hero" class="section-container animate-fadeIn text-center mb-5">
+        <h1 class="heading-accent text-gradient">BLOG POST</h1>
+        <h2 class="text-accent-purple">Insights & Perspectives</h2>
+        <p class="text-secondary mt-2 p-standard text-readable text-style-common">Exploring ideas and sharing knowledge in data science and machine learning.</p>
+    </section>
+
+    <article class="blog-post section-container" role="article">
+        <header class="blog-post-header">
+            <div class="section-heading">
+                <h2 class="heading-accent text-gradient">Machine Learning in Production</h2>
+            </div>
+            <p class="post-date text-secondary text-sm"><em>Published on: April 2, 2025</em></p>
             </header>
             
-            <section class="blog-post-content card-style-common bg-subtle rounded shadow-sm animate-fadeIn animate-delay-1 content-padded">
-                <p class="text-style-common">
-                    [This is the first paragraph of the example blog post. Introduce the topic here.]
+            <section class="blog-post-content card-style-common shadow-md p-standard rounded-lg" aria-label="Blog post content">
+                <p>
+                    Deploying machine learning models to production environments presents unique challenges that differ significantly from traditional software deployment. Organizations often struggle with the transition from successful model development to reliable production implementation.
                 </p>
-                
-                <p class="text-style-common">
-                    [This is the second paragraph. Elaborate on the topic, provide details, examples, or code snippets.]
-                </p>
-                
-                <h2 class="text-accent-blue mt-4 mb-2">Code Example</h2>
-                
-                <pre class="rounded-md bg-card p-3 shadow-sm animate-standard hover-lift"><code>
-// Example code snippet placeholder
-function greet(name) {
-  console.log(`Hello, ${name}!`);
-}
-                </code></pre>
                 
                 <p>
-                    [This is the concluding paragraph. Summarize the key points or offer final thoughts.]
+                    In this post, I'll explore key considerations for successfully taking ML models from development to production, including monitoring strategies, deployment patterns, and best practices for maintaining model performance over time.
+                </p>
+                
+                <h3>Code Example</h3>
+                
+                <pre class="code-block" aria-label="Python code example for model monitoring"><code class="language-python">
+# Example monitoring function for ML model in production
+def monitor_model_performance(model_id, metrics_window="7d"):
+    """
+    Retrieve and analyze performance metrics for a deployed model
+    
+    Args:
+        model_id (str): The unique identifier for the deployed model
+        metrics_window (str): Time window for metrics collection (e.g. "7d" for 7 days)
+        
+    Returns:
+        dict: Performance metrics including accuracy, drift indicators, and alerts
+    """
+    current_metrics = fetch_model_metrics(model_id, window=metrics_window)
+    baseline_metrics = get_baseline_metrics(model_id)
+    
+    drift_detected = detect_drift(current_metrics, baseline_metrics)
+    
+    if drift_detected:
+        trigger_alert(model_id, "Potential model drift detected")
+    
+    return {
+        "performance": current_metrics,
+        "drift_detected": drift_detected,
+        "recommendations": generate_recommendations(current_metrics)
+    }
+                </code></pre>
+                
+                <h3>Key Considerations</h3>
+                
+                <ul>
+                    <li class="mb-2">Implement comprehensive monitoring for model drift and data quality</li>
+                    <li class="mb-2">Establish clear rollback procedures for model versions</li>
+                    <li class="mb-2">Design for scalability to handle variable inference loads</li>
+                    <li class="mb-2">Maintain detailed documentation of model architecture and dependencies</li>
+                </ul>
+                
+                <p>
+                    By addressing these challenges proactively, data science teams can ensure their models deliver consistent value in production environments while minimizing operational risks. The key is creating a robust MLOps pipeline that bridges the gap between development and production systems.
                 </p>
             </section>
             
             <footer>
-                <p class="mt-4">
+                <p class="mt-4 text-secondary">
                     Tags:
-                    <a href="#" class="text-accent-blue animate-standard">javascript</a>,
-                    <a href="#" class="text-accent-green animate-standard">coding</a>,
-                    <a href="#" class="text-accent-pink animate-standard">tutorial</a>
+                    <a href="#" class="text-accent-blue animate-standard link-underline-hover" aria-label="View all posts tagged with machine-learning">machine-learning</a>,
+                    <a href="#" class="text-accent-green animate-standard link-underline-hover" aria-label="View all posts tagged with mlops">mlops</a>,
+                    <a href="#" class="text-accent-pink animate-standard link-underline-hover" aria-label="View all posts tagged with production">production</a>
                 </p>
             </footer>
         </article>
         
-        <nav class="post-navigation flex-between p-3 mt-5 rounded shadow-sm bg-subtle-transparent animate-fadeIn animate-delay-2">
-            <a href="#previous-post" class="prev-post hover-translate-x-subtle animate-standard">&laquo; Previous Post</a>
-            <a href="../index.html" class="button-small hover-scale animate-standard">Back to Blog Index</a>
-            <a href="#next-post" class="next-post hover-translate-x animate-standard">Next Post &raquo;</a>
+        <nav class="post-navigation flex-between p-standard mt-4" aria-label="Blog post navigation">
+            <a href="#previous-post" class="button-base button-small button-secondary animate-standard" aria-label="Go to previous blog post">&laquo; Previous Post</a>
+            <a href="../index.html" class="button-base button-small button-primary animate-standard" aria-label="Return to blog home page">Back to Blog Index</a>
+            <a href="#next-post" class="button-base button-small button-secondary animate-standard" aria-label="Go to next blog post">Next Post &raquo;</a>
         </nav>
-    </main>
+</main>
 
-    <footer>
-      <div class="footer-container flex-between container-lg">
-        <div class="footer-social flex-center">
-          <a href="https://github.com/yourusername" target="_blank" class="social-icon animate-standard"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/jdpaletto" target="_blank" class="social-icon animate-standard"><i class="fab fa-linkedin"></i></a>
-          <a href="https://twitter.com/yourusername" target="_blank" class="social-icon animate-standard"><i class="fab fa-twitter"></i></a>
+    <footer class="border-top py-4 mt-5">
+      <div class="container-lg mx-auto flex-between">
+        <div class="footer-social flex-center gap-3">
+          <a href="https://github.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="GitHub Profile"><i class="fab fa-github icon-style" aria-hidden="true"></i></a>
+          <a href="https://linkedin.com/in/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="LinkedIn Profile"><i class="fab fa-linkedin icon-style icon-purple" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="Twitter Profile"><i class="fab fa-twitter icon-style icon-purple" aria-hidden="true"></i></a>
         </div>
         <div class="footer-info">
-          <p class="text-secondary">&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p>
+          <p class="text-secondary text-sm opacity-75">&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p>
         </div>
       </div>
     </footer>
+    
+    <!-- Add our new JavaScript for modern effects -->
+    <script src="../../js/modern-effects.js"></script>
 </body>
 </html>

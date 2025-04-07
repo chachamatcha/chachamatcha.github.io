@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Predictive Analytics API - John Daniel "JD" Paletto</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modern-theme.css"> <!-- Using modern theme -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../favicon.png"> <!-- Added favicon link -->
 </head>
 <body>
     <header>
-        <h2>JOHN DANIEL "JD" PALETTO</h2>
-        <nav>
+        <h2 class="text-gradient">JOHN DANIEL "JD" PALETTO</h2> <!-- Using gradient text -->
+        <nav aria-label="Main navigation">
             <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="index.html" class="active">Projects</a></li>
@@ -21,53 +22,66 @@
         </nav>
     </header>
 
-    <section id="hero">
-        <h1>Predictive Analytics API</h1>
-        <h2>Scalable REST API service</h2>
-        <p>Time-series prediction and anomaly detection for enterprise applications</p>
+    <!-- Background gradient animation - inspired by GitHub Copilot's site -->
+    <div class="background-gradient"></div>
+
+    <section id="hero" class="section-container animate-fadeIn text-center mb-5"> <!-- Standardized hero section -->
+        <h1 class="section-heading heading-accent-green text-gradient mb-4">Predictive Analytics API</h1> <!-- Using green accent and gradient -->
+        <h2 class="text-xl mt-3 text-accent-green font-semibold">Scalable REST API service</h2> <!-- Using green accent -->
+        <p class="text-secondary mt-2 p-standard text-readable text-style-common">Time-series prediction and anomaly detection for enterprise applications</p> <!-- Standardized paragraph -->
     </section>
 
-    <main>
-        <section class="project-detail">
-            <h2>Project Overview</h2>
-            <p>This scalable REST API provides time-series prediction and anomaly detection capabilities for enterprise applications. Built with FastAPI and scikit-learn, it offers high-performance predictions with minimal latency.</p>
-            
-            <h3>Key Features</h3>
-            <ul>
-                <li>RESTful API design with comprehensive documentation</li>
-                <li>Advanced time-series forecasting models</li>
-                <li>Anomaly detection with configurable sensitivity</li>
-                <li>Docker containerization for easy deployment</li>
-                <li>Horizontal scaling capabilities</li>
-            </ul>
+    <main class="container-lg mt-4">
+        <section class="project-detail mb-5 animate-fadeIn"> <!-- Removed duplicate container-lg -->
+            <h2 class="section-heading heading-accent-blue mb-4">Project Overview</h2> <!-- Standardized h2 -->
+            <div class="card-style-common p-standard rounded-lg bg-subtle shadow-md"> <!-- Using consistent shadow -->
+                <p class="text-readable text-style-common">This scalable REST API provides time-series prediction and anomaly detection capabilities for enterprise applications. Built with FastAPI and scikit-learn, it offers high-performance predictions with minimal latency.</p> <!-- Standardized paragraph -->
 
-            <h3>Technologies Used</h3>
-            <div class="project-tech">
-                <span>FastAPI</span>
-                <span>scikit-learn</span>
-                <span>Docker</span>
-                <span>Kubernetes</span>
-            </div>
-            
-            <div class="project-links">
-                <a href="https://github.com/jdpaletto/predictive-api" class="github-link" target="_blank">
-                    <i class="fab fa-github"></i> View on GitHub
-                </a>
+                <h3 class="text-lg font-semibold mt-4 mb-2 text-accent-green">Key Features</h3> <!-- Standardized h3 -->
+                <ul class="list-disc pl-4 text-secondary text-readable"> <!-- Standardized list -->
+                    <li class="mb-2">RESTful API design with comprehensive documentation</li>
+                    <li class="mb-2">Advanced time-series forecasting models</li>
+                    <li class="mb-2">Anomaly detection with configurable sensitivity</li>
+                    <li class="mb-2">Docker containerization for easy deployment</li>
+                    <li class="mb-2">Horizontal scaling capabilities</li>
+                </ul>
+
+                <h3 class="text-lg font-semibold mt-4 mb-2 text-accent-green">Technologies Used</h3> <!-- Standardized h3 -->
+                <div class="project-tech flex flex-wrap my-3 gap-2"> <!-- Added flex for consistency -->
+                    <span class="tech-tag tech-tag-green">FastAPI</span> <!-- Standardized tech tags -->
+                    <span class="tech-tag tech-tag-green">scikit-learn</span>
+                    <span class="tech-tag tech-tag-green">Docker</span>
+                    <span class="tech-tag tech-tag-green">Kubernetes</span>
+                </div>
+
+                <div class="project-links flex-center mt-4">
+                    <a href="https://github.com/jdpaletto/predictive-api" class="button-base button-primary interactive-element animate-standard rounded-md hover-lift" target="_blank" rel="noopener noreferrer" aria-label="View Predictive API project source code on GitHub">
+                        <i class="fab fa-github mr-2 icon-style" aria-hidden="true"></i> View on GitHub
+                    </a>
+                </div>
+                
+                <div class="flex-center mt-5">
+                    <a href="index.html" class="button-base button-secondary interactive-element animate-standard rounded-md hover-lift" aria-label="Return to all projects listing">
+                        <i class="fas fa-arrow-left mr-2 icon-style" aria-hidden="true"></i> Back to All Projects
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-social">
-                <a href="https://github.com/jdpaletto" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/jdpaletto" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://twitter.com/jdpaletto" target="_blank"><i class="fab fa-twitter"></i></a>
+    <footer class="border-top py-4 mt-5">
+        <div class="container-lg mx-auto flex-between"> <!-- Added container-lg -->
+            <div class="footer-social flex-center gap-3">
+                <a href="https://github.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="GitHub Profile"><i class="fab fa-github icon-style" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/in/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="LinkedIn Profile"><i class="fab fa-linkedin icon-style icon-purple" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="Twitter Profile"><i class="fab fa-twitter icon-style icon-purple" aria-hidden="true"></i></a>
             </div>
             <div class="footer-info">
-                <p>&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p>
+                <p class="text-secondary text-sm opacity-75">&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p> <!-- Standardized copyright -->
             </div>
         </div>
     </footer>
+    <!-- Add our new JavaScript for modern effects -->
+    <script src="../js/modern-effects.js"></script>
 </body>
 </html>

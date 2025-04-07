@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - John Daniel "JD" Paletto</title>
-    <link rel="stylesheet" href="../css/style.min.css"> <!-- Adjusted path for CSS -->
+    <link rel="stylesheet" href="../css/modern-theme.css"> <!-- Using new modern theme -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <meta name="description" content="Explore John Daniel Paletto's data science and machine learning projects">
 </head>
 <body>
     <header>
-        <h2 class="text-primary">JOHN DANIEL "JD" PALETTO</h2>
-        <nav>
+        <h2 class="text-gradient">JOHN DANIEL "JD" PALETTO</h2>
+        <nav aria-label="Main navigation">
             <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="index.html" class="active">Projects</a></li>
@@ -20,93 +22,101 @@
             </ul>
         </nav>
     </header>
-<section id="hero" class="container-lg animate-fadeIn text-center p-5 content-center">
-    <h1 class="text-3xl gradient-primary text-gradient">MY PROJECTS</h1>
-    <h2 class="text-xl mt-3 text-accent-blue font-semibold">A collection of my work</h2>
-    <p class="text-secondary mt-2 p-standard w-container-md mx-auto text-style-common">Explore a selection of my data science and machine learning projects that showcase my expertise and approach to problem-solving.</p>
-</section>
 
+    <!-- Background gradient animation - inspired by GitHub Copilot's site -->
+    <div class="background-gradient"></div>
 
-<main class="container-lg mt-4">
-        <section id="project-list" class="bg-subtle rounded p-4 animate-fadeIn">
-            <h2 class="section-heading heading-accent heading-accent-blue mb-4">My Projects</h2>
-            <div class="projects-grid gap-3 mt-3 animate-slideUp animate-delay-1">
-                <div class="project-card card-style-common hover-lift shadow-sm card-accent-blue overflow-hidden-card">
+<main>
+    <section id="hero" class="section-container animate-fadeIn text-center mb-5">
+        <h1 class="section-heading heading-accent text-gradient mb-4">MY PROJECTS</h1>
+        <h2 class="text-xl mt-3 text-accent-purple font-semibold">A collection of my work</h2>
+        <p class="text-secondary mt-2 p-standard w-container-md mx-auto text-readable text-style-common">Explore a selection of my data science and machine learning projects that showcase my expertise and approach to problem-solving.</p>
+    </section>
+
+    <section id="project-list" class="section-container">
+        <div class="section-heading">
+            <h2 class="heading-accent text-gradient">My Projects</h2>
+        </div>
+            <div class="projects-grid gap-4 mt-3 animate-slideUp animate-delay-1" role="list">
+                <div class="project-card card-style-common card-accent-purple interactive-element animate-standard rounded-lg hover-lift shadow-md overflow-hidden" role="listitem">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=ML+Dashboard" alt="Machine Learning Dashboard" class="w-full rounded-t">
+                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=ML+Dashboard" alt="Machine Learning Dashboard - A visual interface showing model metrics and performance graphs" class="w-full">
                     </div>
-                    <div class="card-content p-3">
-                        <h3 class="text-lg">Machine Learning Dashboard</h3>
-                        <p class="text-secondary mt-2">Real-time analytics platform for monitoring model performance and drift detection.</p>
+                    <div class="card-content p-standard"> <!-- Use p-standard -->
+                        <h3 class="text-lg text-accent-purple">Machine Learning Dashboard</h3>
+                        <p class="text-secondary mt-2 text-readable text-style-common">Real-time analytics platform for monitoring model performance and drift detection.</p>
                         <div class="project-tech flex flex-wrap mt-3 mb-3 gap-2">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">React</span>
+                            <span class="tech-tag tech-tag-purple">Python</span>
+                            <span class="tech-tag tech-tag-purple">TensorFlow</span>
+                            <span class="tech-tag tech-tag-purple">React</span>
                         </div>
                         <div class="project-links flex-between mt-3">
-                            <a href="ml-dashboard.html" class="button-small interactive-element animate-standard">View Details</a>
-                            <a href="https://github.com/jdpaletto/ml-dashboard" class="github-link social-icon" target="_blank">
-                                <i class="fab fa-github icon-blue"></i>
+                            <a href="ml-dashboard.html" class="button-base button-small button-primary interactive-element animate-standard rounded-md hover-lift shadow-glow" aria-label="View ML Dashboard project details">View Details</a>
+                            <a href="https://github.com/jdpaletto/ml-dashboard" class="social-icon interactive-element" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for ML Dashboard project">
+                                <i class="fab fa-github icon-style icon-purple"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="project-card card-style-common transform-hover card-shadow card-accent-green overflow-hidden-card">
+
+                <div class="project-card card-style-common card-accent-green interactive-element animate-standard rounded-lg hover-lift shadow-md overflow-hidden" role="listitem">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=API+Service" alt="Predictive Analytics API" class="w-full rounded-t">
+                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=API+Service" alt="Predictive Analytics API - A diagram showing the API architecture and data flow" class="w-full">
                     </div>
-                    <div class="card-content p-3">
-                        <h3 class="text-lg">Predictive Analytics API</h3>
-                        <p class="text-secondary mt-2">Scalable REST API for time-series prediction and anomaly detection.</p>
-                        <div class="project-tech flex-wrap mt-3 mb-3">
+                    <div class="card-content p-standard"> <!-- Use p-standard -->
+                        <h3 class="text-lg text-accent-green">Predictive Analytics API</h3> <!-- Added text-accent-green -->
+                        <p class="text-secondary mt-2 text-readable text-style-common">Scalable REST API for time-series prediction and anomaly detection.</p> <!-- Added standard text classes -->
+                        <div class="project-tech flex flex-wrap mt-3 mb-3 gap-2">
                             <span class="tech-tag tech-tag-green">FastAPI</span>
                             <span class="tech-tag tech-tag-green">scikit-learn</span>
                             <span class="tech-tag tech-tag-green">Docker</span>
                         </div>
                         <div class="project-links flex-between mt-3">
-                            <a href="predictive-api.html" class="button-small interactive-element animate-standard">View Details</a>
-                            <a href="https://github.com/jdpaletto/predictive-api" class="github-link hover-bright" target="_blank">
-                                <i class="fab fa-github icon-green"></i>
+                            <a href="predictive-api.html" class="button-base button-small button-primary interactive-element animate-standard rounded-md hover-lift shadow-glow" aria-label="View Predictive API project details">View Details</a>
+                            <a href="https://github.com/jdpaletto/predictive-api" class="social-icon interactive-element" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for Predictive API project">
+                                <i class="fab fa-github icon-style icon-green"></i> <!-- Added icon-style -->
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card card-style-common transform-hover card-shadow card-accent-pink overflow-hidden-card">
+                <div class="project-card card-style-common card-accent-pink interactive-element animate-standard rounded-lg hover-lift shadow-md overflow-hidden" role="listitem">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=NLP+Model" alt="NLP Text Classifier" class="w-full rounded-t">
+                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=NLP+Model" alt="NLP Text Classifier - A visualization of text classification process with sample inputs and outputs" class="w-full">
                     </div>
-                    <div class="card-content p-3">
-                        <h3 class="text-lg">NLP Text Classifier</h3>
-                        <p class="text-secondary mt-2">Multi-class text classification system for customer feedback categorization.</p>
-                        <div class="project-tech flex-wrap mt-3 mb-3">
+                    <div class="card-content p-standard"> <!-- Use p-standard -->
+                        <h3 class="text-lg text-accent-pink">NLP Text Classifier</h3> <!-- Added text-accent-pink -->
+                        <p class="text-secondary mt-2 text-readable text-style-common">Multi-class text classification system for customer feedback categorization.</p> <!-- Added standard text classes -->
+                        <div class="project-tech flex flex-wrap mt-3 mb-3 gap-2">
                             <span class="tech-tag tech-tag-pink">PyTorch</span>
                             <span class="tech-tag tech-tag-pink">BERT</span>
                             <span class="tech-tag tech-tag-pink">Flask</span>
                         </div>
                         <div class="project-links flex-between mt-3">
-                            <a href="nlp-classifier.html" class="button-small interactive-element animate-standard">View Details</a>
-                            <a href="https://github.com/jdpaletto/nlp-classifier" class="github-link hover-bright" target="_blank">
-                                <i class="fab fa-github icon-pink"></i>
+                            <a href="nlp-classifier.html" class="button-base button-small button-primary interactive-element animate-standard rounded-md hover-lift shadow-glow" aria-label="View NLP Classifier project details">View Details</a>
+                            <a href="https://github.com/jdpaletto/nlp-classifier" class="social-icon interactive-element" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for NLP Classifier project">
+                                <i class="fab fa-github icon-style icon-pink"></i> <!-- Added icon-style -->
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
+</main>
 
-    <footer>
-      <div class="footer-container flex-between container-lg">
-        <div class="footer-social flex-center">
-          <a href="https://github.com/jdpaletto" target="_blank" class="social-icon"><i class="fab fa-github icon-style"></i></a>
-          <a href="https://linkedin.com/in/jdpaletto" target="_blank" class="social-icon"><i class="fab fa-linkedin icon-style icon-blue"></i></a>
-          <a href="https://twitter.com/jdpaletto" target="_blank" class="social-icon"><i class="fab fa-twitter icon-style icon-blue"></i></a>
+    <footer class="border-top py-4 mt-5">
+      <div class="container-lg mx-auto flex-between"> <!-- Use container-lg -->
+        <div class="footer-social flex-center gap-3">
+          <a href="https://github.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="GitHub Profile"><i class="fab fa-github icon-style" aria-hidden="true"></i></a>
+          <a href="https://linkedin.com/in/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="LinkedIn Profile"><i class="fab fa-linkedin icon-style icon-purple" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="Twitter Profile"><i class="fab fa-twitter icon-style icon-purple" aria-hidden="true"></i></a>
         </div>
         <div class="footer-info">
-          <p class="text-secondary">&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p>
+          <p class="text-secondary text-sm opacity-75">&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p> <!-- Added standard text classes -->
         </div>
       </div>
     </footer>
+    
+    <!-- Add our new JavaScript for modern effects -->
+    <script src="../js/modern-effects.js"></script>
 </body>
 </html>

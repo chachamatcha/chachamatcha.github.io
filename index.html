@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Daniel "JD" Paletto - Personal Website</title>
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/modern-theme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="John Daniel 'JD' Paletto - Data Science Leader and Machine Learning Expert">
 </head>
 <body>
     <header>
-        <h2 class="text-primary">JOHN DANIEL "JD" PALETTO</h2>
-        <nav>
+        <h2 class="text-gradient">JOHN DANIEL "JD" PALETTO</h2>
+        <nav aria-label="Main navigation">
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="projects/index.html">Projects</a></li>
@@ -20,201 +22,116 @@
             </ul>
         </nav>
     </header>
-    <section id="hero" class="hero-container animate-fadeIn">
-        <h1 class="text-3xl gradient-primary text-gradient">JOHN DANIEL "JD" PALETTO</h1>
-        <h2 class="text-xl mt-3 text-accent-blue font-semibold">Data Science Leader</h2>
+    
+    <!-- Background gradient animation - inspired by GitHub Copilot's site -->
+    <div class="background-gradient"></div>
+
+    <section id="hero" class="section-container animate-fadeIn text-center mb-5">
+        <h1 class="section-heading heading-accent text-gradient mb-4">JOHN DANIEL "JD" PALETTO</h1>
+        <h2 class="text-xl mt-3 text-accent-purple font-semibold">Data Science Leader</h2>
         <p class="text-secondary mt-2 p-standard text-readable text-style-common">Experienced Data Science Leader with a track record of building and guiding high-performance teams to develop innovative machine learning solutions.</p>
         <div class="hero-buttons mt-4 flex-center gap-3">
-          <a href="resume.html" class="button-primary animate-standard rounded-sm">View My Resume</a>
-          <a href="projects/index.html" class="button-secondary animate-standard rounded-sm">See My Projects</a>
+          <a href="resume.html" class="button-base button-primary interactive-element animate-standard rounded-md shadow-glow" aria-label="View my resume">View My Resume</a>
+          <a href="projects/index.html" class="button-base button-secondary interactive-element animate-standard rounded-md hover-lift" aria-label="See my projects">See My Projects</a>
         </div>
     </section>
 
 
-    <main>
-        <section id="about" class="section-container animate-fadeIn">
-            <h2 class="section-heading heading-accent heading-accent-blue">About Me</h2>
-            <p class="accent-border-standard accent-green p-4 text-style-common">Experienced Data Science Leader with a track record of building and guiding high-performance teams to develop innovative machine learning solutions. Recognized for contributions to major projects and platforms at The New York Times and Peacock TV in both financial and media applications.</p>
+    <main class="container-lg mt-4"> <!-- Added container-lg -->
+        <section id="about" class="section-container animate-fadeIn mb-5"> <!-- Added mb-5 -->
+            <h2 class="section-heading heading-accent mb-4 text-gradient">About Me</h2>
+            <p class="accent-border-standard accent-purple p-4 text-style-common font-medium text-secondary">Experienced Data Science Leader with a track record of building and guiding high-performance teams to develop innovative machine learning solutions. Recognized for contributions to major projects and platforms at The New York Times and Peacock TV in both financial and media applications.</p>
         </section>
 
-        <section id="skills" class="section-container animate-fadeIn">
-            <h2 class="section-heading heading-accent heading-accent-green">Core Skills</h2>
-            <div class="skill-category animate-slideUp animate-delay-1">
-                <h3 class="accent-bottom-blue">Data Science & Machine Learning</h3>
-                <div class="skills-grid">
-                    <div class="skill-item card-style-common shadow-md hover-lift">
-                        <h4 class="text-lg text-accent-blue text-semibold">Machine Learning</h4>
-                        <p class="text-secondary mt-2 text-readable text-style-common">Applied ML, Predictive Modeling, Classification, Regression</p>
-                    </div>
-                    <div class="skill-item card-style-common shadow-md hover-lift">
-                        <h4 class="text-lg text-accent-blue text-semibold">Data Science</h4>
-                        <p class="text-secondary mt-2 text-readable text-style-common">Analysis, Insights, Strategy, Reporting</p>
-                    </div>
-                    <div class="skill-item card-style-common shadow-md hover-lift">
-                        <h4 class="text-lg text-accent-blue text-semibold">Experimentation</h4>
-                        <p class="text-secondary mt-2 text-readable text-style-common">A/B Testing, Causal/Uplift Modeling, Statistical Analysis</p>
-                    </div>
-                    <div class="skill-item card-style-common shadow-md hover-lift">
-                        <h4 class="text-lg text-accent-blue text-semibold">Algorithmic Targeting</h4>
-                        <p class="text-secondary mt-2 text-readable text-style-common">Optimization, Recommendation Systems, Personalization</p>
-                    </div>
-                </div>
-            </div>
-            <div class="skill-category animate-slideUp animate-delay-2">
-                <h3 class="accent-bottom-green">Programming & Tools</h3>
-                <div class="skills-grid">
-                    <div class="skill-item card-style-common shadow-md hover-lift">
-                        <h4 class="text-lg text-accent-green text-semibold">Python</h4>
-                        <p class="text-secondary mt-2 text-readable text-style-common">Data Analysis, ML Implementation, Scripting, Pandas, NumPy</p>
-                    </div>
-                    <div class="skill-item card-style-common shadow-md hover-lift">
-                        <h4 class="text-lg text-accent-green text-semibold">SQL</h4>
-                        <p class="text-secondary mt-2 text-readable text-style-common">Data Querying & Manipulation, Database Management</p>
-                    </div>
-                    <div class="skill-item card-style-common shadow-md hover-lift">
-                        <h4 class="text-lg text-accent-green text-semibold">Git</h4>
-                        <p class="text-secondary mt-2 text-readable text-style-common">Version Control & Collaboration, Repository Management</p>
-                    </div>
-                </div>
-            </div>
-            <div class="skill-category animate-slideUp animate-delay-3">
-                <h3 class="accent-bottom-pink">Platforms & Engineering</h3>
-                <div class="skills-grid">
-                    <div class="skill-item card-style-common shadow-md hover-lift">
-                        <h4 class="text-lg text-accent-pink text-semibold">Cloud Platforms</h4>
-                        <p class="text-secondary mt-2 text-readable text-style-common">AWS, GCP, Azure, Serverless, Containers</p>
-                    </div>
-                    <div class="skill-item card-style-common shadow-md hover-lift">
-                        <h4 class="text-lg text-accent-pink text-semibold">Data Engineering</h4>
-                        <p class="text-secondary mt-2 text-readable text-style-common">Pipelines, Feature Stores, ETL Processes</p>
-                    </div>
-                    <div class="skill-item card-style-common shadow-md hover-lift">
-                        <h4 class="text-lg text-accent-pink text-semibold">MLOps</h4>
-                        <p class="text-secondary mt-2 text-readable text-style-common">Model Deployment, Platforms, Monitoring, CI/CD</p>
-                    </div>
-                    <div class="skill-item card-style-common shadow-md hover-lift">
-                        <h4 class="text-lg text-accent-pink text-semibold">Snowflake</h4>
-                        <p class="text-secondary mt-2 text-readable text-style-common">Data Warehousing & Analytics, SQL, Performance</p>
-                    </div>
-                </div>
-            </div>
-            <div class="skill-category animate-slideUp animate-delay-4">
-                <h3 class="accent-bottom-blue">Leadership & Management</h3>
-                <div class="skills-grid">
-                    <div class="skill-item card-style-common shadow-md card-hover-effect">
-                        <h4 class="text-lg text-accent-blue text-semibold">Team Leadership</h4>
-                        <p class="text-secondary mt-2 text-readable">Org Building, Mentoring, Performance Management</p>
-                    </div>
-                    <div class="skill-item card-style-common shadow-md card-hover-effect">
-                        <h4 class="text-lg text-accent-blue text-semibold">Product Strategy</h4>
-                        <p class="text-secondary mt-2 text-readable">Roadmapping, Requirements Gathering, Vision</p>
-                    </div>
-                    <div class="skill-item card-style-common shadow-md card-hover-effect">
-                        <h4 class="text-lg text-accent-blue text-semibold">Cross-functional Collaboration</h4>
-                        <p class="text-secondary mt-2 text-readable">Communication, Stakeholder Management, Team Alignment</p>
-                    </div>
-                    <div class="skill-item card-style-common shadow-md card-hover-effect">
-                        <h4 class="text-lg text-accent-blue text-semibold">Budget Management</h4>
-                        <p class="text-secondary mt-2 text-readable">Resource Allocation, Cost Control, Planning</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section id="featured-projects" class="section-container animate-fadeIn animate-delay-2 mb-5"> <!-- Removed duplicate container-lg -->
+            <h2 class="section-heading heading-accent mb-4 text-gradient">Featured Projects</h2>
 
-        <section id="featured-projects" class="section-container animate-fadeIn animate-delay-2">
-            <h2 class="section-heading heading-accent heading-accent-pink">Featured Projects</h2>
-            
-            <div class="projects-grid">
+            <div class="projects-grid gap-4" role="list">
                 <!-- Project Card 1 -->
-                <div class="project-card-container card-accent-blue card-hover-effect rounded-lg overflow-hidden">
+                <div class="project-card card-style-common transform-hover shadow-md rounded-lg overflow-hidden" role="listitem">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=Data+Visualization" alt="Machine Learning Dashboard" class="w-full" />
+                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=ML+Dashboard" alt="Machine Learning Dashboard - A visual interface showing model metrics and performance graphs" class="w-full">
                     </div>
-                    <div class="card-content p-standard">
-                        <h3 class="text-accent-blue">Machine Learning Dashboard</h3>
-                        <p class="text-secondary my-2 text-readable">Real-time analytics platform for monitoring model performance and drift detection.</p>
-                        <div class="project-tech flex-wrap mb-3">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">React</span>
+                    <div class="card-content p-standard"> <!-- Use p-standard -->
+                        <h3 class="text-lg text-accent-purple">Machine Learning Dashboard</h3>
+                        <p class="text-secondary mt-2 text-readable">Real-time analytics platform for monitoring model performance and drift detection.</p>
+                        <div class="project-tech flex flex-wrap mt-3 mb-3 gap-2"> <!-- Added gap -->
+                            <span class="tech-tag tech-tag-purple">Python</span>
+                            <span class="tech-tag tech-tag-purple">TensorFlow</span>
+                            <span class="tech-tag tech-tag-purple">React</span>
                         </div>
                         <div class="project-links flex-between mt-3">
-                            <a href="projects/ml-dashboard.html" class="button-small">View Details</a>
-                            <a href="https://github.com/jdpaletto/ml-dashboard" class="social-icon link-underline-hover" target="_blank">
-                                <i class="fab fa-github text-accent-blue"></i>
+                            <a href="projects/ml-dashboard.html" class="button-base button-small button-secondary interactive-element animate-standard rounded-md shadow-glow" aria-label="View ML Dashboard project details">View Details</a>
+                            <a href="https://github.com/jdpaletto/ml-dashboard" class="social-icon interactive-element animate-glow" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for ML Dashboard project">
+                                <i class="fab fa-github icon-style icon-purple"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Project Card 2 -->
-                <div class="project-card-container card-accent-green card-hover-effect rounded-lg overflow-hidden">
+                <div class="project-card card-style-common transform-hover shadow-md rounded-lg overflow-hidden" role="listitem">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=API+Service" alt="Predictive Analytics API" class="w-full" />
+                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=API+Service" alt="Predictive Analytics API - A diagram showing the API architecture and data flow" class="w-full">
                     </div>
-                    <div class="card-content p-standard">
-                        <h3 class="text-accent-green">Predictive Analytics API</h3>
-                        <p class="text-secondary my-2 text-readable">Scalable REST API for time-series prediction and anomaly detection.</p>
-                        <div class="project-tech flex-wrap mb-3">
-                            <span class="tech-tag tech-tag-green">FastAPI</span>
+                    <div class="card-content p-standard"> <!-- Use p-standard -->
+                        <h3 class="text-lg text-accent-green">Predictive Analytics API</h3> <!-- Added text-accent-green -->
+                        <p class="text-secondary mt-2 text-readable">Scalable REST API for time-series prediction and anomaly detection.</p> <!-- Added standard text classes -->
+                        <div class="project-tech flex flex-wrap mt-3 mb-3 gap-2">
+                            <span class="tech-tag tech-tag-green">FastAPI</span> <!-- Standardized tech tags -->
                             <span class="tech-tag tech-tag-green">scikit-learn</span>
                             <span class="tech-tag tech-tag-green">Docker</span>
                         </div>
                         <div class="project-links flex-between mt-3">
-                            <a href="projects/predictive-api.html" class="button-small">View Details</a>
-                            <a href="https://github.com/jdpaletto/predictive-api" class="social-icon link-underline-hover" target="_blank">
-                                <i class="fab fa-github text-accent-green"></i>
+                            <a href="projects/predictive-api.html" class="button-base button-small button-secondary interactive-element animate-standard rounded-md shadow-glow" aria-label="View Predictive API project details">View Details</a>
+                            <a href="https://github.com/jdpaletto/predictive-api" class="social-icon interactive-element animate-glow" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for Predictive API project">
+                                <i class="fab fa-github icon-style icon-green"></i> <!-- Added icon-style -->
                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Project Card 3 -->
-                <div class="project-card-container card-accent-pink card-hover-effect rounded-lg overflow-hidden">
+                <div class="project-card card-style-common transform-hover shadow-md rounded-lg overflow-hidden" role="listitem">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=NLP+Model" alt="NLP Text Classifier" class="w-full" />
+                        <img src="https://via.placeholder.com/300x200/1a1a1a/e6edf3?text=NLP+Model" alt="NLP Text Classifier - A visualization of text classification process with sample text inputs and output categories" class="w-full">
                     </div>
-                    <div class="card-content p-standard">
-                        <h3 class="text-accent-pink">NLP Text Classifier</h3>
-                        <p class="text-secondary my-2 text-readable">Multi-class text classification system for customer feedback categorization.</p>
-                        <div class="project-tech flex-wrap mb-3">
-                            <span class="tech-tag tech-tag-pink">PyTorch</span>
+                    <div class="card-content p-standard"> <!-- Use p-standard -->
+                        <h3 class="text-lg text-accent-pink">NLP Text Classifier</h3> <!-- Added text-accent-pink -->
+                        <p class="text-secondary mt-2 text-readable">Multi-class text classification system for customer feedback categorization.</p> <!-- Added standard text classes -->
+                        <div class="project-tech flex flex-wrap mt-3 mb-3 gap-2">
+                            <span class="tech-tag tech-tag-pink">PyTorch</span> <!-- Standardized tech tags -->
                             <span class="tech-tag tech-tag-pink">BERT</span>
                             <span class="tech-tag tech-tag-pink">Flask</span>
                         </div>
                         <div class="project-links flex-between mt-3">
-                            <a href="projects/nlp-classifier.html" class="button-small">View Details</a>
-                            <a href="https://github.com/jdpaletto/nlp-classifier" class="social-icon link-underline-hover" target="_blank">
-                                <i class="fab fa-github text-accent-pink"></i>
+                            <a href="projects/nlp-classifier.html" class="button-base button-small button-primary interactive-element animate-standard rounded-md shadow-glow" aria-label="View NLP Classifier project details">View Details</a>
+                            <a href="https://github.com/jdpaletto/nlp-classifier" class="social-icon interactive-element animate-glow" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository for NLP Classifier project">
+                                <i class="fab fa-github icon-style icon-pink"></i> <!-- Added icon-style -->
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="projects-footer flex-center mt-4">
-                <a href="projects/index.html" class="button-primary">View All Projects</a>
-            </div>
+
         </section>
 
-        <!-- Detailed resume sections moved to resume.html -->
-
-        <div class="resume-link-container flex-center my-5">
-             <a href="resume.html" class="btn btn-primary shadow-md rounded-sm card-hover-effect">View Full Resume</a>
-        </div>
     </main>
 
-    <footer>
-      <div class="footer-container flex-between container-lg">
+    <footer class="border-top py-4 mt-5">
+      <div class="container-lg mx-auto flex-between">
         <div class="footer-social flex-center gap-3">
-          <a href="https://github.com/jdpaletto" target="_blank" class="social-icon card-hover-effect"><i class="fab fa-github icon-style"></i></a>
-          <a href="https://linkedin.com/in/jdpaletto" target="_blank" class="social-icon card-hover-effect"><i class="fab fa-linkedin icon-style text-accent-blue"></i></a>
-          <a href="https://twitter.com/jdpaletto" target="_blank" class="social-icon card-hover-effect"><i class="fab fa-twitter icon-style text-accent-blue"></i></a>
+          <a href="https://github.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="GitHub Profile"><i class="fab fa-github icon-style" aria-hidden="true"></i></a>
+          <a href="https://linkedin.com/in/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="LinkedIn Profile"><i class="fab fa-linkedin icon-style" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="Twitter Profile"><i class="fab fa-twitter icon-style" aria-hidden="true"></i></a>
         </div>
         <div class="footer-info">
-          <p class="text-secondary opacity-75">&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p>
+          <p class="text-secondary text-sm opacity-75">&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p> <!-- Standardized copyright -->
         </div>
       </div>
     </footer>
+
+    <!-- Add our new JavaScript for modern effects -->
+    <script src="js/modern-effects.js"></script>
 </body>
 </html>

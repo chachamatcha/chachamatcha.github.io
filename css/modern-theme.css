@@ -1,0 +1,1389 @@
+/* 
+ * Modern Theme CSS inspired by GitHub Copilot
+ * Created: April 2025
+ * Organization: Variables, Base, Utilities, Components, Sections, Animations, Media Queries
+ */
+
+/*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+:root {
+  /* Colors inspired by GitHub Copilot site */
+  --color-bg-primary: #0d1117; /* Dark background */
+  --color-bg-secondary: #161b22; /* Slightly lighter dark for cards */
+  --color-text-primary: #f0f6fc; /* Bright white text */
+  --color-text-secondary: #8b949e; /* Muted text */
+  --color-border-primary: #30363d; /* Border color */
+  
+  /* Accent colors inspired by GitHub Copilot */
+  --color-accent-purple: #8957e5; /* Primary Copilot purple */
+  --color-accent-blue: #58a6ff; /* Blue accent */
+  --color-accent-green: #3fb950; /* Green accent */
+  --color-accent-pink: #f778ba; /* Pink accent */
+  
+  /* Gradient colors */
+  --color-gradient-start: #6e40c9; /* Purple gradient start */
+  --color-gradient-mid: #8957e5; /* Purple gradient middle */
+  --color-gradient-end: #5896ff; /* Blue gradient end */
+  
+  /* Card backgrounds */
+  --color-card-bg: rgba(33, 38, 45, 0.8); /* Card background */
+  --color-subtle-bg: rgba(48, 54, 61, 0.15); /* Subtle background */
+  
+  /* Fonts */
+  --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-mono: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 15px rgba(105, 64, 201, 0.5);
+  
+  /* Border radius */
+  --border-radius-sm: 0.375rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.625rem;
+  
+  /* Transitions */
+  --transition-standard: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* Spacing System */
+  --spacing-1: 0.5rem;    /* 8px */
+  --spacing-2: 1rem;      /* 16px - standard button padding (y-axis) */
+  --spacing-3: 1.5rem;    /* 24px - standard margin between related elements */
+  --spacing-4: 2rem;      /* 32px - standard button padding (x-axis) */
+  --spacing-5: 2.5rem;    /* 40px - minimum padding for content blocks */
+  --spacing-6: 3rem;      /* 48px - standard container padding */
+  --spacing-7: 3.5rem;    /* 56px */
+  --spacing-8: 4rem;      /* 64px */
+  --spacing-9: 5rem;      /* 80px - spacing between major sections */
+  --spacing-section: 5rem; /* 80px - consistent spacing between all major sections */
+  --spacing-10: 6rem;     /* 96px - extra spacing for major section separation */
+}
+
+/*--------------------------------------------------------------
+# Base Styles
+--------------------------------------------------------------*/
+body {
+  background-color: var(--color-bg-primary);
+  font-family: var(--font-family-sans);
+  margin: 0;
+  line-height: 1.8; /* Enhanced readability for better visual spacing */
+  color: var(--color-text-primary);
+  position: relative;
+  overflow-x: hidden;
+}
+
+p {
+  margin-bottom: var(--spacing-6); /* Increased from spacing-4 to spacing-6 for more breathing room */
+  line-height: 1.8; /* Enhanced readability */
+  margin-top: var(--spacing-3);
+}
+
+p + p {
+  margin-top: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+}
+
+/* Background gradient animation - inspired by GitHub Copilot's site */
+.background-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at top right, rgba(110, 64, 201, 0.15), transparent 60%),
+              radial-gradient(circle at bottom left, rgba(88, 166, 255, 0.15), transparent 60%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+h1, h2, h3, h4 {
+  color: var(--color-text-primary);
+  margin-top: var(--spacing-10); /* Improve visual hierarchy with more space before headings */
+  margin-bottom: var(--spacing-6); /* Increased from spacing-4 to spacing-6 for more space after headings */
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 3.2em;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(105, 64, 201, 0.2);
+}
+
+h2 {
+  font-size: 2em;
+  margin-top: var(--spacing-section); /* 80px spacing for consistent section separation */
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-top: var(--spacing-6); /* 48px spacing for subsection separation */
+}
+
+a {
+  color: var(--color-accent-blue);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+  color: var(--color-accent-purple);
+}
+
+a:focus, button:focus {
+  outline: 2px solid var(--color-accent-purple);
+  outline-offset: 2px;
+}
+
+ul {
+  padding-left: var(--spacing-4);
+  margin-top: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+}
+
+section ul li {
+  margin-bottom: var(--spacing-3); /* 24px standard margin between related elements */
+  line-height: 1.8; /* Enhanced readability */
+  margin-top: var(--spacing-3);
+}
+
+pre {
+  background-color: var(--color-bg-secondary);
+  padding: var(--spacing-6); /* Increased from spacing-5 to spacing-6 for standard container padding */
+  border-radius: var(--border-radius-md);
+  overflow-x: auto;
+  border: 1px solid var(--color-border-primary);
+  color: var(--color-text-primary);
+  margin-top: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+}
+
+code {
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  background-color: rgba(88, 166, 255, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  color: var(--color-accent-blue);
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border-primary);
+  height: 1px;
+  margin: var(--spacing-9) 0;
+  opacity: 0.5;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-6); /* Added spacing between header elements */
+  align-items: center;
+  background-color: rgba(13, 17, 23, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: var(--spacing-3) var(--spacing-6); /* Maintained standard container padding */
+  border-bottom: 1px solid var(--color-border-primary);
+  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+header h2 {
+  color: var(--color-text-primary);
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(105, 64, 201, 0.3);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: var(--spacing-4); /* Maintained 32px spacing between navigation items for consistency */
+}
+
+nav a {
+  color: var(--color-text-secondary);
+  padding: var(--spacing-2) var(--spacing-4); /* Standard 16px vertical, 32px horizontal button padding */
+  text-decoration: none;
+  position: relative;
+  transition: var(--transition-standard);
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: var(--color-text-primary);
+}
+
+nav a:after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+  transition: width 0.3s ease;
+}
+
+nav a:hover:after {
+  width: 100%;
+}
+
+nav a.active {
+  color: var(--color-accent-purple);
+  font-weight: 700;
+}
+
+nav a.active:after {
+  width: 100%;
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+}
+
+footer {
+  background-color: var(--color-bg-primary);
+  border-top: 1px solid var(--color-border-primary);
+  padding: var(--spacing-section) 0 var(--spacing-6); /* 80px top, 48px bottom padding */
+  margin-top: var(--spacing-section); /* Consistent 80px spacing between major sections */
+}
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+/* Text colors */
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-accent-blue {
+  color: var(--color-accent-blue);
+}
+
+.text-accent-green {
+  color: var(--color-accent-green);
+}
+
+.text-accent-pink {
+  color: var(--color-accent-pink);
+}
+
+.text-accent-purple {
+  color: var(--color-accent-purple);
+}
+
+/* Text gradient effect */
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Text sizes */
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+/* Text styles */
+.text-center {
+  text-align: center;
+}
+
+.text-semibold {
+  font-weight: 600;
+}
+.text-readable {
+  line-height: 1.8;
+  max-width: 65ch;
+  margin-bottom: var(--spacing-6);
+}
+.text-style-common {
+  line-height: 1.8;
+  margin-bottom: var(--spacing-6);
+  margin-top: var(--spacing-3);
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+/* Colors and backgrounds */
+.bg-subtle {
+  background-color: var(--color-subtle-bg);
+}
+
+.bg-card {
+  background-color: var(--color-card-bg);
+}
+
+/* Margins */
+.mt-2 {
+  margin-top: var(--spacing-2);
+}
+
+.mt-3 {
+  margin-top: var(--spacing-3);
+}
+
+.mt-4 {
+  margin-top: var(--spacing-4);
+}
+
+.mt-5 {
+  margin-top: var(--spacing-6);
+}
+
+.mb-2 {
+  margin-bottom: var(--spacing-2);
+}
+
+.mb-3 {
+  margin-bottom: var(--spacing-3);
+}
+
+.mb-4 {
+  margin-bottom: var(--spacing-4);
+}
+
+.mb-5 {
+  margin-bottom: var(--spacing-7);
+}
+
+.mr-2 {
+  margin-right: var(--spacing-2);
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-3 {
+  margin-top: var(--spacing-3);
+  margin-bottom: var(--spacing-3);
+}
+
+/* Padding */
+.p-2 {
+  padding: var(--spacing-2);
+}
+
+.p-3 {
+  padding: var(--spacing-3);
+}
+
+.p-4 {
+  padding: var(--spacing-4);
+}
+
+.p-5 {
+  padding: var(--spacing-5);
+}
+
+.p-standard {
+  padding: var(--spacing-6); /* Standard container padding of 48px */
+}
+
+.px-3 {
+  padding-left: var(--spacing-3);
+  padding-right: var(--spacing-3);
+}
+
+.py-2 {
+  padding-top: var(--spacing-2);
+  padding-bottom: var(--spacing-2);
+}
+
+.py-4 {
+  padding-top: var(--spacing-4);
+  padding-bottom: var(--spacing-4);
+}
+
+.pb-2 {
+  padding-bottom: var(--spacing-2);
+}
+
+.pl-4 {
+  padding-left: var(--spacing-4);
+}
+
+/* Flexbox */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.items-center {
+  align-items: center;
+}
+
+/* Gap utilities */
+.gap-2 {
+  gap: var(--spacing-2);
+}
+
+.gap-3 {
+  gap: var(--spacing-3);
+}
+
+.gap-4 {
+  gap: var(--spacing-4);
+}
+
+/* Visibility */
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Borders */
+.border-top {
+  border-top: 1px solid var(--color-border-primary);
+}
+
+/* Borders with accent colors */
+.accent-border-standard {
+  border-left: 3px solid;
+  padding-left: 1.2rem;
+  padding-right: 0.8rem;
+}
+
+.accent-bottom-blue {
+  border-bottom: 2px solid var(--color-accent-blue);
+  padding-bottom: 0.5rem;
+  margin-bottom: var(--spacing-3);
+}
+
+.accent-bottom-green {
+  border-bottom: 2px solid var(--color-accent-green);
+  padding-bottom: 0.5rem;
+  margin-bottom: var(--spacing-3);
+}
+
+.accent-bottom-pink {
+  border-bottom: 2px solid var(--color-accent-pink);
+  padding-bottom: 0.5rem;
+  margin-bottom: var(--spacing-3);
+}
+
+.accent-bottom-purple {
+  border-bottom: 2px solid var(--color-accent-purple);
+  padding-bottom: 0.5rem;
+  margin-bottom: var(--spacing-3);
+}
+
+.accent-green {
+  color: var(--color-accent-green);
+  border-color: var(--color-accent-green);
+}
+
+.accent-purple {
+  color: var(--color-accent-purple);
+  border-color: var(--color-accent-purple);
+}
+
+/* Border radius */
+.rounded {
+  border-radius: var(--border-radius-sm);
+}
+
+.rounded-md {
+  border-radius: var(--border-radius-md);
+}
+
+.rounded-lg {
+  border-radius: var(--border-radius-lg);
+}
+
+/* Shadows */
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+.card-shadow {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Width utilities */
+.w-full {
+  width: 100%;
+}
+
+.w-container-sm {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.w-container-md {
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Containers */
+.container {
+  margin: 0 auto;
+  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  max-width: 960px;
+  margin-bottom: var(--spacing-section); /* Added bottom margin for consistent section spacing */
+}
+
+.container-sm {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  margin-bottom: var(--spacing-section); /* Added bottom margin for consistent section spacing */
+}
+
+.container-lg {
+  margin: 0 auto;
+  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  max-width: 1200px;
+  margin-bottom: var(--spacing-section); /* Added bottom margin for consistent section spacing */
+}
+
+/* Misc utilities */
+.opacity-75 {
+  opacity: 0.75;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.list-disc {
+  list-style-type: disc;
+}
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+/* Button base class */
+.button-base {
+  display: inline-block;
+  padding: var(--spacing-2) var(--spacing-4); /* Maintained 16px vertical, 32px horizontal standard button padding */
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  text-align: center;
+  transition: var(--transition-bounce);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin: var(--spacing-3) 0; /* Maintained 24px margins between related elements */
+}
+
+/* Button variants */
+.button-primary {
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+  color: var(--color-text-primary);
+  border: none;
+}
+
+.button-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-purple));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.button-primary:hover::before {
+  opacity: 1;
+}
+
+.button-secondary {
+  background-color: transparent;
+  border: 1px solid var(--color-accent-purple);
+  color: var(--color-accent-purple);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.button-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.button-secondary:hover {
+  color: var(--color-text-primary);
+  border-color: transparent;
+}
+
+.button-secondary:hover::before {
+  opacity: 0.8;
+}
+
+.button-small {
+  padding: var(--spacing-2) var(--spacing-4); /* Maintained standard button padding */
+  font-size: 0.875rem;
+  margin: var(--spacing-3) 0; /* Maintained 24px margins between related elements */
+}
+
+/* Card styles */
+.card-style-common {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  margin-top: var(--spacing-6);
+}
+
+.card-style-common::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-style-common:hover::before {
+  opacity: 1;
+}
+
+.card-accent-blue {
+  border-left: 3px solid var(--color-accent-blue);
+}
+
+.card-accent-green {
+  border-left: 3px solid var(--color-accent-green);
+}
+
+.card-accent-pink {
+  border-left: 3px solid var(--color-accent-pink);
+}
+
+.card-accent-purple {
+  border-left: 3px solid var(--color-accent-purple);
+}
+
+/* Skill items */
+.skill-item {
+  background-color: var(--color-card-bg);
+  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border-primary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  margin-bottom: var(--spacing-6); /* Maintained 48px standard spacing between related elements */
+  margin-top: var(--spacing-3); /* Maintained 24px standard margin between related elements */
+  overflow: hidden;
+}
+
+.skill-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-item:hover::before {
+  opacity: 1;
+}
+
+/* Project cards */
+.project-card {
+  overflow: hidden;
+  position: relative;
+}
+
+.project-image {
+  height: 180px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  margin-top: var(--spacing-3); /* Maintained 24px standard margin between related elements */
+}
+
+/* Tech tags */
+.tech-tag {
+  display: inline-block;
+  padding: calc(var(--spacing-1) / 2) var(--spacing-1);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tech-tag-blue {
+  background-color: rgba(88, 166, 255, 0.15);
+  color: var(--color-accent-blue);
+}
+
+.tech-tag-green {
+  background-color: rgba(63, 185, 80, 0.15);
+  color: var(--color-accent-green);
+}
+
+.tech-tag-pink {
+  background-color: rgba(247, 120, 186, 0.15);
+  color: var(--color-accent-pink);
+}
+
+.tech-tag-purple {
+  background-color: rgba(137, 87, 229, 0.15);
+  color: var(--color-accent-purple);
+}
+
+/* Icons */
+.icon-style {
+  font-size: 1.2rem;
+  width: 24px;
+  margin-right: var(--spacing-3);
+  text-align: center;
+  transition: var(--transition-standard);
+}
+
+.icon-blue {
+  color: var(--color-accent-blue);
+}
+
+.icon-green {
+  color: var(--color-accent-green);
+}
+
+.icon-pink {
+  color: var(--color-accent-pink);
+}
+
+.icon-purple {
+  color: var(--color-accent-purple);
+}
+
+/* Social icons */
+.social-icon {
+  transition: filter 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 var(--spacing-3);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 0 8px rgba(105, 64, 201, 0.6));
+}
+
+/* Interactive elements with hover effects */
+.interactive-element {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.interactive-element:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.transform-hover {
+  transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transform-hover:hover {
+  transform: translateY(-5px);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-translate-x {
+  transition: transform 0.3s ease;
+}
+
+.hover-translate-x:hover {
+  transform: translateX(5px);
+}
+
+/* Links with hover effects */
+.link-hover-effect {
+  position: relative;
+  color: var(--color-accent-purple);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link-hover-effect:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+  transition: width 0.3s ease;
+}
+
+.link-hover-effect:hover:after {
+  width: 100%;
+}
+
+.link-underline-hover {
+  text-decoration: none;
+  position: relative;
+}
+
+.link-underline-hover:after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+  transition: width 0.3s ease;
+}
+
+.link-underline-hover:hover:after {
+  width: 100%;
+}
+
+/* Resume item components */
+.resume-item {
+  margin-bottom: var(--spacing-6);
+  margin-top: var(--spacing-6);
+  position: relative;
+  transition: transform 0.3s ease;
+  padding-left: var(--spacing-4);
+}
+
+.resume-item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(180deg, var(--color-accent-purple), var(--color-accent-blue));
+  opacity: 0.6;
+}
+
+.resume-item:hover {
+  transform: translateX(5px);
+}
+
+.resume-item h3 {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+}
+
+.resume-item .date {
+  font-size: 0.9em;
+  margin-bottom: var(--spacing-5);
+  color: var(--color-text-secondary);
+}
+
+.resume-item .degree {
+  color: var(--color-accent-purple);
+  font-weight: 500;
+  margin-bottom: var(--spacing-6);
+}
+
+/* Section headings */
+.section-heading {
+  margin-top: var(--spacing-10); /* Maintained 96px extra spacing for major section headings */
+  margin-bottom: var(--spacing-6); /* Maintained 48px standard container padding */
+  font-size: 1.8em;
+  position: relative;
+  text-align: center;
+}
+
+.heading-accent {
+  position: relative;
+}
+
+.heading-accent:after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+}
+
+.heading-accent-blue:after {
+  background: linear-gradient(90deg, var(--color-accent-blue), var(--color-accent-purple));
+}
+
+.heading-accent-green:after {
+  background: linear-gradient(90deg, var(--color-accent-green), var(--color-accent-blue));
+}
+
+.heading-accent-pink:after {
+  background: linear-gradient(90deg, var(--color-accent-pink), var(--color-accent-purple));
+}
+
+/*--------------------------------------------------------------
+# Sections
+--------------------------------------------------------------*/
+/* Main section containers */
+main {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  margin-top: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
+}
+
+.section-container {
+  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  margin-top: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-subtle-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(105, 64, 201, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+/* Hero section */
+#hero {
+  padding: var(--spacing-10) var(--spacing-6); /* Maintained 96px top/bottom, 48px left/right padding */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  margin-top: var(--spacing-section); /* Consistent 80px spacing between major sections */
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(105, 64, 201, 0.3), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+#hero h1 {
+  font-size: 3.5em;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+  letter-spacing: -0.03em;
+  background: linear-gradient(90deg, var(--color-accent-purple), var(--color-accent-blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(105, 64, 201, 0.2);
+}
+
+#hero h2 {
+  font-size: 1.5em;
+  font-weight: 400;
+  color: var(--color-accent-purple);
+  margin-bottom: var(--spacing-9);
+}
+
+#hero p {
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: var(--spacing-6) auto var(--spacing-section); /* 48px top, 80px bottom - consistent breathing room */
+  line-height: 1.8; /* Maintained enhanced readability */
+  font-size: 1.1em;
+  padding: 0 var(--spacing-6); /* 48px standard container padding */
+}
+
+.hero-buttons {
+  margin-top: var(--spacing-9);
+  margin-bottom: var(--spacing-6);
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+/* About section */
+#about {
+  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  max-width: 800px;
+  margin: var(--spacing-section) auto; /* Consistent 80px spacing between major sections */
+}
+
+/* Skills section */
+#skills {
+  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  max-width: 900px;
+  margin: var(--spacing-section) auto; /* Consistent 80px spacing between major sections */
+}
+
+.skill-category {
+  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  margin-top: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  padding: var(--spacing-6) 0; /* Maintained 48px standard padding top and bottom */
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-6); /* 48px standard spacing between grid items */
+}
+
+/* Projects section */
+#featured-projects {
+  padding: var(--spacing-6) 0; /* Maintained 48px standard padding top and bottom */
+  max-width: 1200px;
+  margin: var(--spacing-section) auto var(--spacing-section); /* Consistent 80px spacing between major sections */
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-6); /* Maintained 48px standard gap */
+  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  margin-top: var(--spacing-section); /* Consistent 80px spacing between major sections */
+}
+
+.projects-footer {
+  text-align: center;
+}
+
+/* Contact section */
+#contact {
+  padding: var(--spacing-6); /* Maintained standard container padding of 48px */
+  max-width: 700px;
+  margin: var(--spacing-section) auto var(--spacing-section); /* Consistent 80px spacing between major sections */
+  background-color: var(--color-subtle-bg);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer-social {
+  margin-bottom: var(--spacing-4);
+}
+
+.footer-info p {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Blog post sections */
+.blog-post-header {
+  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  margin-top: var(--spacing-10); /* Maintained 96px extra spacing for major section headings */
+  text-align: center;
+}
+
+.blog-post-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-6); /* Maintained standard container padding of 48px */
+  line-height: 1.8; /* Maintained enhanced readability */
+}
+.blog-post-content p {
+  margin-bottom: var(--spacing-6); /* Maintained 48px standard spacing */
+  line-height: 1.8; /* Maintained enhanced readability */
+  margin-top: var(--spacing-3); /* Maintained 24px standard margin between related elements */
+}
+
+.blog-post-content p + p {
+  margin-top: var(--spacing-3);
+  margin-bottom: var(--spacing-6);
+}
+
+/*--------------------------------------------------------------
+# Animations
+--------------------------------------------------------------*/
+.animate-standard {
+  transition: all 0.3s ease;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.animate-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.animate-delay-4 {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(105, 64, 201, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(105, 64, 201, 0.6);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/*--------------------------------------------------------------
+# Media Queries
+--------------------------------------------------------------*/
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: var(--spacing-4) var(--spacing-3);
+  }
+  
+  header h2 {
+    margin-bottom: 1rem;
+  }
+  
+  nav ul li {
+    margin-left: var(--spacing-3);
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-card {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+  
+  #hero h1 {
+    font-size: 2.5em;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .footer-social {
+    margin-bottom: 0;
+  }
+  .footer-container:before {
+    display: none;
+  }
+}
+
+/* Print styles for resume */
+@media print {
+  .resume-actions,
+  footer,
+  header {
+    display: none;
+  }
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+  .resume-item {
+    border-left: 2px solid #8957e5;
+    background-color: transparent;
+    page-break-inside: avoid;
+  }
+  a {
+    color: #0366d6 !important;
+    text-decoration: none !important;
+  }
+}

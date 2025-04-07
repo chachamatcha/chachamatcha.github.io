@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me - John Daniel "JD" Paletto</title>
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/modern-theme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="Get in touch with John Daniel Paletto, data science leader and machine learning expert">
 </head>
 <body>
     <header>
-        <h2 class="text-primary">JOHN DANIEL "JD" PALETTO</h2>
-        <nav>
+        <h2 class="text-gradient">JOHN DANIEL "JD" PALETTO</h2>
+        <nav aria-label="Main navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projects/index.html">Projects</a></li>
@@ -20,54 +22,68 @@
             </ul>
         </nav>
     </header>
-    <section id="hero" class="container-lg animate-fadeIn p-5 text-center content-center">
-        <h1 class="text-3xl gradient-primary text-gradient mb-3">CONTACT ME</h1>
-        <h2 class="text-xl mt-3 text-accent-blue font-semibold">Get in Touch</h2>
-        <p class="text-secondary mt-2 p-standard mx-auto w-container-sm opacity-75 text-style-common">Have a question or want to discuss potential opportunities? Feel free to reach out through any of the channels below.</p>
+<!-- Background gradient animation - inspired by GitHub Copilot's site -->
+<div class="background-gradient"></div>
+
+<main>
+    <section id="hero" class="section-container animate-fadeIn text-center mb-5">
+        <h1 class="heading-accent text-gradient">CONTACT ME</h1>
+        <h2 class="text-accent-purple">Get in Touch</h2>
+        <p class="text-secondary mt-2 p-standard text-readable text-style-common">Have a question or want to discuss potential opportunities? Feel free to reach out through any of the channels below.</p>
     </section>
 
-    <main>
-        <section id="contact" class="section-container animate-fadeIn bg-subtle border-radius-lg shadow-md">
-            <h2 class="section-heading heading-accent heading-accent-blue">Contact Information</h2>
-            <div class="flex items-center icon-with-text mb-3 p-2 border-radius-md animate-standard hover-translate-x">
-                <i class="fas fa-phone icon-style icon-blue mr-2"></i>
-                <span class="text-secondary">(201) 575-0256</span>
+        <section id="contact" class="section-container">
+            <div class="section-heading">
+                <h2 class="heading-accent text-gradient">Contact Information</h2>
             </div>
-            <div class="flex items-center icon-with-text mb-3 p-2 border-radius-md animate-standard hover-translate-x">
-                <i class="fas fa-envelope icon-style icon-blue mr-2"></i>
-                <a href="mailto:JDPaletto@gmail.com" class="link-hover-effect text-accent-blue">JDPaletto@gmail.com</a>
+            <div class="card-style-common shadow-md p-standard rounded-lg">
+            <div class="flex items-center icon-with-text mb-3 p-2 rounded-md animate-standard hover-translate-x transform-hover">
+                <i class="fas fa-phone icon-style icon-purple mr-2" aria-hidden="true"></i>
+                <a href="tel:+12015750256" class="text-secondary hover:text-accent-purple transition-colors" aria-label="Phone: 201-575-0256">(201) 575-0256</a>
             </div>
-            <div class="flex items-center icon-with-text mb-3 p-2 border-radius-md animate-standard hover-translate-x">
-                <i class="fas fa-map-marker-alt icon-style icon-blue mr-2"></i>
+            <div class="flex items-center icon-with-text mb-3 p-2 rounded-md animate-standard hover-translate-x">
+                <i class="fas fa-envelope icon-style icon-purple mr-2" aria-hidden="true"></i>
+                <a href="mailto:JDPaletto@gmail.com" class="link-underline-hover text-accent-purple" aria-label="Email: JDPaletto@gmail.com">JDPaletto@gmail.com</a>
+            </div>
+            <div class="flex items-center icon-with-text mb-3 p-2 rounded-md animate-standard hover-translate-x">
+                <i class="fas fa-map-marker-alt icon-style icon-purple mr-2" aria-hidden="true"></i>
                 <span class="text-secondary">New York Metro Area</span>
             </div>
-            <div class="flex items-center icon-with-text mb-3 p-2 border-radius-md animate-standard hover-translate-x">
-                <i class="fab fa-linkedin icon-style icon-blue mr-2"></i>
-                <a href="https://linkedin.com/in/jdpaletto" target="_blank" rel="noopener noreferrer" class="link-hover-effect text-accent-blue">linkedin.com/in/jdpaletto</a>
+            <div class="flex items-center icon-with-text mb-3 p-2 rounded-md animate-standard hover-translate-x">
+                <i class="fab fa-linkedin icon-style icon-purple mr-2" aria-hidden="true"></i>
+                <a href="https://linkedin.com/in/jdpaletto" target="_blank" rel="noopener noreferrer" class="link-underline-hover text-accent-purple" aria-label="LinkedIn profile: linkedin.com/in/jdpaletto">linkedin.com/in/jdpaletto</a>
             </div>
-            <div class="flex items-center icon-with-text mb-3 p-2 border-radius-md animate-standard hover-translate-x">
-                <i class="fab fa-github icon-style icon-blue mr-2"></i>
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="link-hover-effect text-accent-blue">github.com/yourusername</a>
+            <div class="flex items-center icon-with-text mb-3 p-2 rounded-md animate-standard hover-translate-x">
+                <i class="fab fa-github icon-style icon-purple mr-2" aria-hidden="true"></i>
+                <a href="https://github.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="link-underline-hover text-accent-purple" aria-label="GitHub profile: github.com/jdpaletto">github.com/jdpaletto</a>
+            </div>
             </div>
         </section>
 
-        <section id="connect" class="section-container mt-5 mb-5 animate-fadeIn animate-delay-1 shadow-md border-radius-lg p-4">
-            <h2 class="section-heading heading-accent heading-accent-green mb-4">Let's Connect</h2>
-            <p class="text-secondary p-standard card-accent-blue bg-subtle-transparent border-radius-md p-3 text-style-common font-medium">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you have a question or just want to say hello, I'll try my best to get back to you as soon as possible!</p>
+        <section id="connect" class="section-container">
+            <div class="section-heading">
+                <h2 class="heading-accent text-gradient">Let's Connect</h2>
+            </div>
+            <div class="card-style-common shadow-md p-standard rounded-lg">
+                <p class="text-secondary text-readable">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you have a question or just want to say hello, I'll try my best to get back to you as soon as possible!</p>
+            </div>
         </section>
     </main>
 
     <footer class="border-top py-4 mt-5">
       <div class="container-lg mx-auto flex-between">
-        <div class="flex-center gap-3">
-          <a href="https://github.com/yourusername" target="_blank" class="social-icon animate-standard"><i class="fab fa-github icon-style"></i></a>
-          <a href="https://linkedin.com/in/jdpaletto" target="_blank" class="social-icon animate-standard"><i class="fab fa-linkedin icon-style icon-blue"></i></a>
-          <a href="https://twitter.com/yourusername" target="_blank" class="social-icon animate-standard"><i class="fab fa-twitter icon-style icon-blue"></i></a>
+        <div class="footer-social flex-center gap-3">
+          <a href="https://github.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="GitHub Profile"><i class="fab fa-github icon-style" aria-hidden="true"></i></a>
+          <a href="https://linkedin.com/in/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="LinkedIn Profile"><i class="fab fa-linkedin icon-style icon-purple" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="Twitter Profile"><i class="fab fa-twitter icon-style icon-purple" aria-hidden="true"></i></a>
         </div>
-        <div>
+        <div class="footer-info">
           <p class="text-secondary text-sm opacity-75">&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p>
         </div>
       </div>
     </footer>
+    
+    <!-- Add our new JavaScript for modern effects -->
+    <script src="js/modern-effects.js"></script>
 </body>
 </html>

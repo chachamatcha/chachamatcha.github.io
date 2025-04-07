@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NLP Text Classifier - John Daniel "JD" Paletto</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modern-theme.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
 </head>
 <body>
     <header>
-        <h2>JOHN DANIEL "JD" PALETTO</h2>
-        <nav>
+        <h2 class="text-gradient">JOHN DANIEL "JD" PALETTO</h2>
+        <nav aria-label="Main navigation">
             <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="index.html" class="active">Projects</a></li>
@@ -21,53 +22,69 @@
         </nav>
     </header>
 
-    <section id="hero">
-        <h1>NLP Text Classifier</h1>
-        <h2>Multi-class text classification system</h2>
-        <p>Advanced natural language processing for customer feedback categorization</p>
-    </section>
+    <!-- Background gradient animation - inspired by GitHub Copilot's site -->
+    <div class="background-gradient"></div>
+<section id="hero" class="section-container animate-fadeIn text-center mb-5">
+    <h1 class="section-heading heading-accent-pink mb-4">NLP Text Classifier</h1>
+    <h2 class="text-xl mt-3 text-accent-pink font-semibold">Multi-class text classification system</h2>
+    <p class="text-secondary mt-2 p-standard text-readable text-style-common">Advanced natural language processing for customer feedback categorization</p>
+</section>
 
-    <main>
-        <section class="project-detail">
-            <h2>Project Overview</h2>
-            <p>This multi-class text classification system provides sophisticated categorization of customer feedback using state-of-the-art NLP techniques. It utilizes PyTorch and BERT to achieve high accuracy in identifying sentiment, intent, and subject matter.</p>
-            
-            <h3>Key Features</h3>
-            <ul>
-                <li>Multi-class text classification with high accuracy</li>
-                <li>BERT-based model for contextual understanding</li>
-                <li>Flask web interface for easy demonstration</li>
-                <li>Real-time inference capabilities</li>
-                <li>Extensible architecture for additional categories</li>
-            </ul>
-
-            <h3>Technologies Used</h3>
-            <div class="project-tech">
-                <span>PyTorch</span>
-                <span>BERT</span>
-                <span>Flask</span>
-                <span>Transformers</span>
+    <main class="container-lg">
+        <section class="project-detail mb-5 animate-fadeIn">
+            <h2 class="section-heading heading-accent-pink mb-4">Project Overview</h2>
+            <div class="card-style-common p-standard rounded-lg bg-subtle card-shadow">
+                <p class="text-secondary text-readable text-style-common">This multi-class text classification system provides sophisticated categorization of customer feedback using state-of-the-art NLP techniques. It utilizes PyTorch and BERT to achieve high accuracy in identifying sentiment, intent, and subject matter.</p>
             </div>
             
-            <div class="project-links">
-                <a href="https://github.com/jdpaletto/nlp-classifier" class="github-link" target="_blank">
-                    <i class="fab fa-github"></i> View on GitHub
+            <h3 class="text-lg font-semibold mt-4 mb-2 text-accent-pink">Key Features</h3>
+            <div class="card-style-common p-standard rounded-lg bg-subtle card-shadow">
+                <ul class="list-disc pl-4 text-secondary text-readable">
+                    <li class="mb-2">Multi-class text classification with high accuracy</li>
+                    <li class="mb-2">BERT-based model for contextual understanding</li>
+                    <li class="mb-2">Flask web interface for easy demonstration</li>
+                    <li class="mb-2">Real-time inference capabilities</li>
+                    <li class="mb-2">Extensible architecture for additional categories</li>
+                </ul>
+            </div>
+
+            <h3 class="text-lg font-semibold mt-4 mb-2 text-accent-pink">Technologies Used</h3>
+            <div class="card-style-common p-standard rounded-lg bg-subtle card-shadow">
+                <div class="project-tech flex flex-wrap mt-3 mb-3 gap-2">
+                    <span class="tech-tag tech-tag-pink">PyTorch</span>
+                    <span class="tech-tag tech-tag-pink">BERT</span>
+                    <span class="tech-tag tech-tag-pink">Flask</span>
+                    <span class="tech-tag tech-tag-pink">Transformers</span>
+                </div>
+            </div>
+            
+            <div class="project-links flex-center mt-4">
+                <a href="https://github.com/jdpaletto/nlp-classifier" class="button-base button-primary interactive-element animate-standard rounded-md hover-lift" target="_blank" rel="noopener noreferrer" aria-label="View NLP Classifier project source code on GitHub">
+                    <i class="fab fa-github mr-2 icon-style" aria-hidden="true"></i> View on GitHub
+                </a>
+            </div>
+            
+            <div class="flex-center mt-5">
+                <a href="index.html" class="button-base button-secondary interactive-element animate-standard rounded-md hover-lift" aria-label="Return to all projects listing">
+                    <i class="fas fa-arrow-left mr-2 icon-style" aria-hidden="true"></i> Back to All Projects
                 </a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-social">
-                <a href="https://github.com/jdpaletto" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/jdpaletto" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://twitter.com/jdpaletto" target="_blank"><i class="fab fa-twitter"></i></a>
+    <footer class="border-top py-4 mt-5">
+        <div class="container-lg mx-auto flex-between">
+            <div class="footer-social flex-center gap-3">
+                <a href="https://github.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="GitHub Profile"><i class="fab fa-github icon-style" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/in/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="LinkedIn Profile"><i class="fab fa-linkedin icon-style icon-purple" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="Twitter Profile"><i class="fab fa-twitter icon-style icon-purple" aria-hidden="true"></i></a>
             </div>
             <div class="footer-info">
-                <p>&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p>
+                <p class="text-secondary text-sm opacity-75">&copy; 2025 John Daniel "JD" Paletto. All rights reserved.</p>
             </div>
         </div>
     </footer>
+    <!-- Add our new JavaScript for modern effects -->
+    <script src="../js/modern-effects.js"></script>
 </body>
 </html>
