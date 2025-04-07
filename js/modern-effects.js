@@ -110,13 +110,16 @@ function initScrollAnimations() {
 /**
  * Adds a typing effect to the hero section headline with cursor following the last character
  */
+/**
+ * Adds a simple typing effect to the hero section headline without a cursor
+ */
 function initHeroTypingEffect() {
   const heroHeading = document.querySelector('#hero h1');
   
   if (heroHeading) {
     const text = heroHeading.textContent;
     
-    // Add CSS to ensure text-align is center or left instead of right
+    // Add CSS to ensure text is centered
     const styleElement = document.createElement('style');
     styleElement.id = 'typing-effect-style';
     styleElement.textContent = `
@@ -125,31 +128,6 @@ function initHeroTypingEffect() {
         white-space: nowrap;
         display: inline-block;
         width: 100%;
-        overflow: visible;
-      }
-      
-      .typing-container {
-        display: inline-block;
-        position: relative;
-        text-align: center;
-        width: auto;
-        margin: 0 auto;
-      }
-      
-      .typed-text {
-        display: inline;
-      }
-      
-      .typing-cursor {
-        display: inline;
-        position: relative;
-        margin-left: 2px;
-        animation: blink 0.75s step-end infinite;
-      }
-      
-      @keyframes blink {
-        from, to { opacity: 1; }
-        50% { opacity: 0; }
       }
     `;
     document.head.appendChild(styleElement);
@@ -157,21 +135,10 @@ function initHeroTypingEffect() {
     // Create a container for the typing effect
     const container = document.createElement('span');
     container.className = 'typing-container';
-    
-    // Create a span for the typed text
-    const typedTextSpan = document.createElement('span');
-    typedTextSpan.className = 'typed-text';
-    
-    // Create a span for the cursor
-    const cursorSpan = document.createElement('span');
-    cursorSpan.className = 'typing-cursor';
-    cursorSpan.innerHTML = '|';
-    cursorSpan.style.color = 'var(--color-accent-purple)';
-    cursorSpan.style.fontWeight = 'bold';
-    
-    // Append elements to the DOM
-    container.appendChild(typedTextSpan);
-    container.appendChild(cursorSpan);
+    container.style.display = 'inline-block';
+    container.style.textAlign = 'center';
+    container.style.width = 'auto';
+    container.style.margin = '0 auto';
     
     // Clear the heading and add our container
     heroHeading.innerHTML = '';
@@ -182,14 +149,9 @@ function initHeroTypingEffect() {
     
     function typeWriter() {
       if (i < text.length) {
-        typedTextSpan.textContent += text.charAt(i);
+        container.textContent += text.charAt(i);
         i++;
         setTimeout(typeWriter, typingSpeed);
-      } else {
-        // Remove the cursor when typing is complete (optional)
-        setTimeout(() => {
-          cursorSpan.style.display = 'none';
-        }, 1000);
       }
     }
     
