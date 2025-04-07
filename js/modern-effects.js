@@ -148,7 +148,7 @@ function initHeroTypingEffect() {
     heroHeading.appendChild(container);
     
     let i = 0;
-    const typingSpeed = 30; // milliseconds per character
+    const typingSpeed = 25; // milliseconds per character
     
     function typeWriter() {
       if (i < text.length) {
@@ -206,10 +206,10 @@ function initResumeBulletTypingEffect() {
       if (charIndex < text.length) {
         bullet.textContent += text.charAt(charIndex);
         charIndex++;
-        setTimeout(typeChar, 5); // Faster typing for bullet points
+        setTimeout(typeChar, 15); // Faster typing for bullet points
       } else {
         // Move to the next bullet after a pause
-        setTimeout(() => typeBullet(bulletIndex + 1), 200);
+        setTimeout(() => typeBullet(bulletIndex + 1), 300);
       }
     };
     
