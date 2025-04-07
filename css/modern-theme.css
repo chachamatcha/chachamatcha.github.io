@@ -49,18 +49,18 @@
   --transition-standard: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   
-  /* Spacing System */
-  --spacing-1: 0.5rem;    /* 8px */
-  --spacing-2: 1rem;      /* 16px - standard button padding (y-axis) */
-  --spacing-3: 1.5rem;    /* 24px - standard margin between related elements */
-  --spacing-4: 2rem;      /* 32px - standard button padding (x-axis) */
-  --spacing-5: 2.5rem;    /* 40px - minimum padding for content blocks */
-  --spacing-6: 3rem;      /* 48px - standard container padding */
-  --spacing-7: 3.5rem;    /* 56px */
-  --spacing-8: 4rem;      /* 64px */
-  --spacing-9: 5rem;      /* 80px - spacing between major sections */
-  --spacing-section: 5rem; /* 80px - consistent spacing between all major sections */
-  --spacing-10: 6rem;     /* 96px - extra spacing for major section separation */
+  /* Spacing System - Reduced by ~35% for compact layout */
+  --spacing-1: 0.3rem;    /* 5px */
+  --spacing-2: 0.625rem;  /* 10px - standard button padding (y-axis) */
+  --spacing-3: 1rem;      /* 16px - standard margin between related elements */
+  --spacing-4: 1.25rem;   /* 20px - standard button padding (x-axis) */
+  --spacing-5: 1.5rem;    /* 24px - minimum padding for content blocks */
+  --spacing-6: 2rem;      /* 32px - standard container padding */
+  --spacing-7: 2.25rem;   /* 36px */
+  --spacing-8: 2.5rem;    /* 40px */
+  --spacing-9: 3rem;      /* 48px - spacing between major sections */
+  --spacing-section: 3rem; /* 48px - consistent spacing between all major sections */
+  --spacing-10: 3.5rem;   /* 56px - extra spacing for major section separation */
 }
 
 /*--------------------------------------------------------------
@@ -70,21 +70,21 @@ body {
   background-color: var(--color-bg-primary);
   font-family: var(--font-family-sans);
   margin: 0;
-  line-height: 1.8; /* Enhanced readability for better visual spacing */
+  line-height: 1.6; /* Reduced from 1.8 for more compact text */
   color: var(--color-text-primary);
   position: relative;
   overflow-x: hidden;
 }
 
 p {
-  margin-bottom: var(--spacing-6); /* Increased from spacing-4 to spacing-6 for more breathing room */
-  line-height: 1.8; /* Enhanced readability */
-  margin-top: var(--spacing-3);
+  margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
+  line-height: 1.6; /* Reduced from 1.8 for more compact text */
+  margin-top: var(--spacing-2); /* Reduced from spacing-3 */
 }
 
 p + p {
-  margin-top: var(--spacing-3);
-  margin-bottom: var(--spacing-4);
+  margin-top: var(--spacing-2); /* Reduced from spacing-3 */
+  margin-bottom: var(--spacing-3); /* Reduced from spacing-4 */
 }
 
 /* Background gradient animation - inspired by GitHub Copilot's site */
@@ -103,10 +103,10 @@ p + p {
 
 h1, h2, h3, h4 {
   color: var(--color-text-primary);
-  margin-top: var(--spacing-10); /* Improve visual hierarchy with more space before headings */
-  margin-bottom: var(--spacing-6); /* Increased from spacing-4 to spacing-6 for more space after headings */
+  margin-top: var(--spacing-6); /* Reduced from spacing-10 */
+  margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
   font-weight: 600;
-  line-height: 1.6;
+  line-height: 1.4; /* Reduced from 1.6 */
   letter-spacing: -0.02em;
 }
 
@@ -122,12 +122,12 @@ h1 {
 
 h2 {
   font-size: 2em;
-  margin-top: var(--spacing-section); /* 80px spacing for consistent section separation */
+  margin-top: var(--spacing-6); /* Reduced from spacing-section */
 }
 
 h3 {
   font-size: 1.5em;
-  margin-top: var(--spacing-6); /* 48px spacing for subsection separation */
+  margin-top: var(--spacing-4); /* Reduced from spacing-6 */
 }
 
 a {
@@ -147,26 +147,26 @@ a:focus, button:focus {
 }
 
 ul {
-  padding-left: var(--spacing-4);
-  margin-top: var(--spacing-3);
-  margin-bottom: var(--spacing-4);
+  padding-left: var(--spacing-3); /* Reduced from spacing-4 */
+  margin-top: var(--spacing-2); /* Reduced from spacing-3 */
+  margin-bottom: var(--spacing-3); /* Reduced from spacing-4 */
 }
 
 section ul li {
-  margin-bottom: var(--spacing-3); /* 24px standard margin between related elements */
-  line-height: 1.8; /* Enhanced readability */
-  margin-top: var(--spacing-3);
+  margin-bottom: var(--spacing-2); /* Reduced from spacing-3 */
+  line-height: 1.6; /* Reduced from 1.8 */
+  margin-top: var(--spacing-2); /* Reduced from spacing-3 */
 }
 
 pre {
   background-color: var(--color-bg-secondary);
-  padding: var(--spacing-6); /* Increased from spacing-5 to spacing-6 for standard container padding */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
   border-radius: var(--border-radius-md);
   overflow-x: auto;
   border: 1px solid var(--color-border-primary);
   color: var(--color-text-primary);
-  margin-top: var(--spacing-6);
-  margin-bottom: var(--spacing-6);
+  margin-top: var(--spacing-4); /* Reduced from spacing-6 */
+  margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
 }
 
 code {
@@ -196,14 +196,14 @@ hr {
 header {
   display: flex;
   justify-content: space-between;
-  gap: var(--spacing-6); /* Added spacing between header elements */
+  gap: var(--spacing-4); /* Reduced from spacing-6 */
   align-items: center;
   background-color: rgba(13, 17, 23, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: var(--spacing-3) var(--spacing-6); /* Maintained standard container padding */
+  padding: var(--spacing-2) var(--spacing-4); /* Reduced from spacing-3 and spacing-6 */
   border-bottom: 1px solid var(--color-border-primary);
-  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
   position: sticky;
   top: 0;
   z-index: 100;
@@ -232,12 +232,12 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  margin-left: var(--spacing-4); /* Maintained 32px spacing between navigation items for consistency */
+  margin-left: var(--spacing-3); /* Reduced from spacing-4 */
 }
 
 nav a {
   color: var(--color-text-secondary);
-  padding: var(--spacing-2) var(--spacing-4); /* Standard 16px vertical, 32px horizontal button padding */
+  padding: var(--spacing-1) var(--spacing-3); /* Reduced from spacing-2 and spacing-4 */
   text-decoration: none;
   position: relative;
   transition: var(--transition-standard);
@@ -276,8 +276,8 @@ nav a.active:after {
 footer {
   background-color: var(--color-bg-primary);
   border-top: 1px solid var(--color-border-primary);
-  padding: var(--spacing-section) 0 var(--spacing-6); /* 80px top, 48px bottom padding */
-  margin-top: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  padding: var(--spacing-6) 0 var(--spacing-4); /* Reduced from spacing-section and spacing-6 */
+  margin-top: var(--spacing-6); /* Reduced from spacing-section */
 }
 
 /*--------------------------------------------------------------
@@ -613,23 +613,23 @@ footer {
 /* Containers */
 .container {
   margin: 0 auto;
-  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
   max-width: 960px;
-  margin-bottom: var(--spacing-section); /* Added bottom margin for consistent section spacing */
+  margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
 }
 
 .container-sm {
   max-width: 700px;
   margin: 0 auto;
-  padding: var(--spacing-6); /* Maintained 48px standard container padding */
-  margin-bottom: var(--spacing-section); /* Added bottom margin for consistent section spacing */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
+  margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
 }
 
 .container-lg {
   margin: 0 auto;
-  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
   max-width: 1200px;
-  margin-bottom: var(--spacing-section); /* Added bottom margin for consistent section spacing */
+  margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
 }
 
 /* Misc utilities */
@@ -651,7 +651,7 @@ footer {
 /* Button base class */
 .button-base {
   display: inline-block;
-  padding: var(--spacing-2) var(--spacing-4); /* Maintained 16px vertical, 32px horizontal standard button padding */
+  padding: var(--spacing-1) var(--spacing-3); /* Reduced from spacing-2 and spacing-4 */
   border-radius: var(--border-radius-sm);
   font-weight: 600;
   text-align: center;
@@ -660,7 +660,7 @@ footer {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  margin: var(--spacing-3) 0; /* Maintained 24px margins between related elements */
+  margin: var(--spacing-2) 0; /* Reduced from spacing-3 */
 }
 
 /* Button variants */
@@ -719,9 +719,9 @@ footer {
 }
 
 .button-small {
-  padding: var(--spacing-2) var(--spacing-4); /* Maintained standard button padding */
+  padding: var(--spacing-1) var(--spacing-3); /* Reduced from spacing-2 and spacing-4 */
   font-size: 0.875rem;
-  margin: var(--spacing-3) 0; /* Maintained 24px margins between related elements */
+  margin: var(--spacing-2) 0; /* Reduced from spacing-3 */
 }
 
 /* Card styles */
@@ -729,12 +729,12 @@ footer {
   background-color: var(--color-card-bg);
   border: 1px solid var(--color-border-primary);
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
-  margin-top: var(--spacing-6);
+  margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
+  margin-top: var(--spacing-4); /* Reduced from spacing-6 */
 }
 
 .card-style-common::before {
@@ -772,13 +772,13 @@ footer {
 /* Skill items */
 .skill-item {
   background-color: var(--color-card-bg);
-  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
   border-radius: var(--border-radius-lg);
   border: 1px solid var(--color-border-primary);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  margin-bottom: var(--spacing-6); /* Maintained 48px standard spacing between related elements */
-  margin-top: var(--spacing-3); /* Maintained 24px standard margin between related elements */
+  margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
+  margin-top: var(--spacing-2); /* Reduced from spacing-3 */
   overflow: hidden;
 }
 
@@ -821,8 +821,8 @@ footer {
 }
 
 .card-content {
-  padding: var(--spacing-6); /* Maintained 48px standard container padding */
-  margin-top: var(--spacing-3); /* Maintained 24px standard margin between related elements */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
+  margin-top: var(--spacing-2); /* Reduced from spacing-3 */
 }
 
 /* Tech tags */
@@ -980,11 +980,11 @@ footer {
 
 /* Resume item components */
 .resume-item {
-  margin-bottom: var(--spacing-6);
-  margin-top: var(--spacing-6);
+  margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
+  margin-top: var(--spacing-4); /* Reduced from spacing-6 */
   position: relative;
   transition: transform 0.3s ease;
-  padding-left: var(--spacing-4);
+  padding-left: var(--spacing-3); /* Reduced from spacing-4 */
 }
 
 .resume-item:before {
@@ -1009,20 +1009,20 @@ footer {
 
 .resume-item .date {
   font-size: 0.9em;
-  margin-bottom: var(--spacing-5);
+  margin-bottom: var(--spacing-3); /* Reduced from spacing-5 */
   color: var(--color-text-secondary);
 }
 
 .resume-item .degree {
   color: var(--color-accent-purple);
   font-weight: 500;
-  margin-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
 }
 
 /* Section headings */
 .section-heading {
-  margin-top: var(--spacing-10); /* Maintained 96px extra spacing for major section headings */
-  margin-bottom: var(--spacing-6); /* Maintained 48px standard container padding */
+  margin-top: var(--spacing-6); /* Reduced from spacing-10 */
+  margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
   font-size: 1.8em;
   position: relative;
   text-align: center;
@@ -1063,15 +1063,15 @@ footer {
 main {
   max-width: 1060px;
   margin: 0 auto;
-  padding: var(--spacing-6); /* Maintained 48px standard container padding */
-  margin-top: var(--spacing-section); /* Consistent 80px spacing between major sections */
-  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
+  margin-top: var(--spacing-6); /* Reduced from spacing-section */
+  margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
 }
 
 .section-container {
-  padding: var(--spacing-6); /* Maintained 48px standard container padding */
-  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
-  margin-top: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
+  margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
+  margin-top: var(--spacing-6); /* Reduced from spacing-section */
   border-radius: var(--border-radius-lg);
   background-color: var(--color-subtle-bg);
   position: relative;
@@ -1091,12 +1091,12 @@ main {
 
 /* Hero section */
 #hero {
-  padding: var(--spacing-10) var(--spacing-6); /* Maintained 96px top/bottom, 48px left/right padding */
+  padding: var(--spacing-6) var(--spacing-4); /* Reduced from spacing-10 and spacing-6 */
   text-align: center;
   position: relative;
   overflow: hidden;
-  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
-  margin-top: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
+  margin-top: var(--spacing-6); /* Reduced from spacing-section */
 }
 
 #hero::after {
@@ -1127,66 +1127,66 @@ main {
   font-size: 1.5em;
   font-weight: 400;
   color: var(--color-accent-purple);
-  margin-bottom: var(--spacing-9);
+  margin-bottom: var(--spacing-6); /* Reduced from spacing-9 */
 }
 
 #hero p {
   color: var(--color-text-secondary);
   max-width: 600px;
-  margin: var(--spacing-6) auto var(--spacing-section); /* 48px top, 80px bottom - consistent breathing room */
-  line-height: 1.8; /* Maintained enhanced readability */
+  margin: var(--spacing-4) auto var(--spacing-6); /* Reduced from spacing-6 and spacing-section */
+  line-height: 1.6; /* Reduced from 1.8 */
   font-size: 1.1em;
   padding: 0 var(--spacing-6); /* 48px standard container padding */
 }
 
 .hero-buttons {
-  margin-top: var(--spacing-9);
-  margin-bottom: var(--spacing-6);
+  margin-top: var(--spacing-6); /* Reduced from spacing-9 */
+  margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
   display: flex;
   justify-content: center;
-  gap: var(--spacing-4);
+  gap: var(--spacing-3); /* Reduced from spacing-4 */
   flex-wrap: wrap;
 }
 
 /* About section */
 #about {
-  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
   max-width: 800px;
-  margin: var(--spacing-section) auto; /* Consistent 80px spacing between major sections */
+  margin: var(--spacing-6) auto; /* Reduced from spacing-section */
 }
 
 /* Skills section */
 #skills {
-  padding: var(--spacing-6); /* Maintained 48px standard container padding */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
   max-width: 900px;
-  margin: var(--spacing-section) auto; /* Consistent 80px spacing between major sections */
+  margin: var(--spacing-6) auto; /* Reduced from spacing-section */
 }
 
 .skill-category {
-  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
-  margin-top: var(--spacing-section); /* Consistent 80px spacing between major sections */
-  padding: var(--spacing-6) 0; /* Maintained 48px standard padding top and bottom */
+  margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
+  margin-top: var(--spacing-6); /* Reduced from spacing-section */
+  padding: var(--spacing-4) 0; /* Reduced from spacing-6 */
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-6); /* 48px standard spacing between grid items */
+  gap: var(--spacing-4); /* Reduced from spacing-6 */
 }
 
 /* Projects section */
 #featured-projects {
-  padding: var(--spacing-6) 0; /* Maintained 48px standard padding top and bottom */
+  padding: var(--spacing-4) 0; /* Reduced from spacing-6 */
   max-width: 1200px;
-  margin: var(--spacing-section) auto var(--spacing-section); /* Consistent 80px spacing between major sections */
+  margin: var(--spacing-6) auto var(--spacing-6); /* Reduced from spacing-section */
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--spacing-6); /* Maintained 48px standard gap */
-  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
-  margin-top: var(--spacing-section); /* Consistent 80px spacing between major sections */
+  gap: var(--spacing-4); /* Reduced from spacing-6 */
+  margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
+  margin-top: var(--spacing-6); /* Reduced from spacing-section */
 }
 
 .projects-footer {
@@ -1195,9 +1195,9 @@ main {
 
 /* Contact section */
 #contact {
-  padding: var(--spacing-6); /* Maintained standard container padding of 48px */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
   max-width: 700px;
-  margin: var(--spacing-section) auto var(--spacing-section); /* Consistent 80px spacing between major sections */
+  margin: var(--spacing-6) auto var(--spacing-6); /* Reduced from spacing-section */
   background-color: var(--color-subtle-bg);
   border-radius: var(--border-radius-lg);
   border: 1px solid var(--color-border-primary);
@@ -1217,26 +1217,26 @@ main {
 
 /* Blog post sections */
 .blog-post-header {
-  margin-bottom: var(--spacing-section); /* Consistent 80px spacing between major sections */
-  margin-top: var(--spacing-10); /* Maintained 96px extra spacing for major section headings */
+  margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
+  margin-top: var(--spacing-6); /* Reduced from spacing-10 */
   text-align: center;
 }
 
 .blog-post-content {
   max-width: 800px;
   margin: 0 auto;
-  padding: var(--spacing-6); /* Maintained standard container padding of 48px */
-  line-height: 1.8; /* Maintained enhanced readability */
+  padding: var(--spacing-4); /* Reduced from spacing-6 */
+  line-height: 1.6; /* Reduced from 1.8 */
 }
 .blog-post-content p {
-  margin-bottom: var(--spacing-6); /* Maintained 48px standard spacing */
-  line-height: 1.8; /* Maintained enhanced readability */
-  margin-top: var(--spacing-3); /* Maintained 24px standard margin between related elements */
+  margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
+  line-height: 1.6; /* Reduced from 1.8 */
+  margin-top: var(--spacing-2); /* Reduced from spacing-3 */
 }
 
 .blog-post-content p + p {
-  margin-top: var(--spacing-3);
-  margin-bottom: var(--spacing-6);
+  margin-top: var(--spacing-2); /* Reduced from spacing-3 */
+  margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
 }
 
 /*--------------------------------------------------------------
