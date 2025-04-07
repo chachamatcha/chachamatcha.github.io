@@ -206,7 +206,7 @@ function initResumeBulletTypingEffect() {
       if (charIndex < text.length) {
         bullet.textContent += text.charAt(charIndex);
         charIndex++;
-        setTimeout(typeChar, 10); // Faster typing for bullet points
+        setTimeout(typeChar, 5); // Faster typing for bullet points
       } else {
         // Move to the next bullet after a pause
         setTimeout(() => typeBullet(bulletIndex + 1), 200);
