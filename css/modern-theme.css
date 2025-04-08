@@ -30,6 +30,9 @@ img, video {
   --color-accent-blue: #58a6ff; /* Blue accent */
   --color-accent-green: #3fb950; /* Green accent */
   --color-accent-pink: #f778ba; /* Pink accent */
+  --color-accent-red: #e05d44; /* Red accent */
+  --color-accent-orange: #f9a03c; /* Orange accent */
+  --color-accent-yellow: #dfb317; /* Yellow accent */
   
   /* Gradient colors */
   --color-gradient-start: #6e40c9; /* Purple gradient start */
@@ -322,6 +325,18 @@ footer {
 
 .text-accent-purple {
   color: var(--color-accent-purple);
+}
+
+.text-accent-red {
+  color: #e05d44;
+}
+
+.text-accent-orange {
+  color: #f9a03c;
+}
+
+.text-accent-yellow {
+  color: #dfb317;
 }
 
 /* Text gradient effect */

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Journey with Deep Learning for Text Classification - John Daniel "JD" Paletto's Blog</title>
+    <link rel="stylesheet" href="../../css/modern-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <meta name="description" content="My personal journey exploring text classification with Keras and deep learning - comparing my 2018 approaches with modern techniques">
+</head>
+<body>
+    <header>
+        <h2 class="text-gradient">JOHN DANIEL "JD" PALETTO</h2>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../projects/index.html">Projects</a></li>
+                <li><a href="../index.html" class="active">Blog</a></li>
+                <li><a href="../../resume.html">Resume</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Background gradient animation - inspired by GitHub Copilot's site -->
+    <div class="background-gradient"></div>
+    
+    <main>
+        <section id="hero" class="section-container animate-fadeIn text-center mb-5">
+            <h1 class="heading-accent text-gradient">BLOG POST</h1>
+            <h2 class="text-accent-purple mt-3">insights & perspectives</h2>
+            <p class="text-secondary mt-3 p-standard text-readable text-style-common">Exploring ideas and sharing knowledge in data science and machine learning.</p>
+        </section>
+
+        <article class="blog-post section-container mt-5" role="article">
+            <header class="blog-post-header mb-4">
+                <div class="section-heading">
+                    <h2 class="heading-accent text-gradient">My Journey with Deep Learning for Text Classification</h2>
+                </div>
+                <p class="post-date text-secondary text-sm mt-2"><em>Published on: April 8, 2025</em></p>
+            </header>
+        
+            <section class="blog-post-content card-style-common shadow-md p-standard rounded-lg" aria-label="Blog post content">
+                <h3 class="mb-4">When I Built Neural Networks Layer by Layer</h3>
+                
+                <p class="mb-4">
+                    Remember 2018? When <strong>we</strong> had to design neural networks <strong>layer by painstaking layer</strong>? When <strong>we</strong> debated whether to use <strong>LSTMs</strong> or <strong>GRUs</strong>? When <strong>we</strong> spent <em>weeks</em> tuning hyperparameters for that extra 0.5% accuracy? <span class="text-accent-purple">I recently revisited one of my old GitHub repos</span>, and it took me on quite the nostalgic journey: <a href="https://github.com/chachamatcha/DL_Text_Classification" target="_blank" class="text-accent-blue link-underline-hover">dl_text_classification</a>.
+                </p>
+                
+                <p class="mb-4">
+                    Back in 2018, I created this repository—a collection of deep learning models for text classification implemented in <strong>Keras</strong>. It focuses on the <strong>Kaggle Toxic Comment Classification Challenge</strong>, which aimed to identify and classify toxic online comments. <span class="text-accent-pink">Before ChatGPT and other large language models dominated NLP, this was cutting-edge stuff!</span> Looking back at my own code feels like opening a time capsule—<em>and finding both treasure and maybe a little embarrassment inside</em>.
+                </p>
+                <br>
+                <h3 class="mt-5 mb-4">The Task: Multi-label Toxicity Classification</h3>
+                
+                <p class="mb-3">
+                    In this project, I tackled a multi-label classification problem using Wikipedia comments labeled by human raters for different types of toxicity:
+                </p>
+                <ul class="ml-4 my-4">
+                    <li class="mb-3"><span class="text-accent-red">toxic</span></li>
+                    <li class="mb-3"><span class="text-accent-red">severe_toxic</span></li>
+                    <li class="mb-3"><span class="text-accent-orange">obscene</span></li>
+                    <li class="mb-3"><span class="text-accent-orange">threat</span></li>
+                    <li class="mb-3"><span class="text-accent-yellow">insult</span></li>
+                    <li class="mb-3"><span class="text-accent-yellow">identity_hate</span></li>
+                </ul>
+                
+                <p class="mb-4">
+                    My goal was to build models that could predict the probability of each toxicity type for a given comment. This is a classic example of <strong>multi-label classification</strong>, where each input can belong to multiple categories simultaneously. I remember being particularly excited about this challenge because it had real-world applications for content moderation—<em>and let's be honest, who didn't enjoy teaching computers to recognize internet trolls back then?</em>
+                </p>
+                
+                <br>
+                <h3 class="mt-5 mb-4">The Models: Complex Architectures for a Complex Problem</h3>
+                
+                <p class="mb-4">
+                    I implemented several <span class="text-accent-green">fairly sophisticated deep learning architectures</span> in this repository, including:
+                </p>
+                
+                <h4 class="mt-5 mb-4">BLSTM-2DCNN</h4>
+                
+                <p class="mb-4">
+                    <strong>This was probably my favorite model</strong>—it combines bidirectional <strong>LSTMs</strong> with 2D convolutional neural networks (<strong>2DCNN</strong>). I based it on the paper "<a href="https://arxiv.org/pdf/1611.06639.pdf" target="_blank" class="text-accent-blue link-underline-hover">Text Classification Improved by Integrating Bidirectional LSTM with Two-dimensional Max Pooling</a>" by Peng Zhou et al. I remember being so excited when I first got this architecture working properly that I <em>might have actually danced around my apartment</em> at 2 AM.
+                </p>
+                
+                <p class="mb-4">
+                    Here's what my architecture looked like in <strong>Keras</strong> code <span class="text-accent-pink">(brace yourself for some 2018 neural network syntax)</span>:
+                </p>
+                
+                <pre class="code-block my-4" aria-label="Python code example for BLSTM-2DCNN model"><code class="language-python">
+def BLSTM_2DCNN(embedding_matrix, num_classes=6):
+    # input layer
+    sequence_input = Input(shape=(MAX_SEQUENCE_LENGTH,), dtype='int32')
+    
+    # embedding layer
+    embedded_sequences = Embedding(
+        len(word_index) + 1,
+        EMBEDDING_DIM,
+        weights=[embedding_matrix],
+        input_length=MAX_SEQUENCE_LENGTH,
+        trainable=False
+    )(sequence_input)
+    
+    # bidirectional lstm layer
+    lstm_layer = Bidirectional(LSTM(
+        LSTM_UNITS, 
+        return_sequences=True
+    ))(embedded_sequences)
+    
+    # reshape for 2d convolution
+    reshaped = Reshape((MAX_SEQUENCE_LENGTH, 2*LSTM_UNITS, 1))(lstm_layer)
+    
+    # 2d convolution layers
+    conv1 = Conv2D(
+        filters=64, 
+        kernel_size=(3, 3), 
+        padding='same', 
+        activation='relu'
+    )(reshaped)
+    pool1 = MaxPooling2D(pool_size=(2, 2))(conv1)
+    
+    # flatten and dense layers
+    flat = Flatten()(pool1)
+    dense1 = Dense(256, activation='relu')(flat)
+    drop1 = Dropout(0.5)(dense1)
+    
+    # output layer
+    output = Dense(num_classes, activation='sigmoid')(drop1)
+    
+    # compile model
+    model = Model(inputs=sequence_input, outputs=output)
+    
+    return model
+                </code></pre>
+                
+                <h4 class="mt-5 mb-4">BGRU-2DCNN</h4>
+                
+                <p class="mb-4">
+                    This was my experimental variation replacing <strong>LSTMs</strong> with Gated Recurrent Units (<strong>GRUs</strong>). I was curious about their performance since they had a simpler structure but often delivered comparable results. <strong>The eternal question:</strong> <em>"Can we get the same results with less computation?"</em> I remember running extensive benchmarks to compare the two approaches, fueled by nothing but coffee and sheer determination.
+                </p>
+                
+                <p class="mb-3">
+                    My code was similar, just swapping <strong>LSTM</strong> for <strong>GRU</strong> <span class="text-accent-pink">(a seemingly small change that, naturally, caused hours of debugging)</span>:
+                </p>
+                
+                <pre class="code-block my-4" aria-label="Python code example for GRU layer"><code class="language-python">
+# bidirectional gru layer instead of lstm
+gru_layer = Bidirectional(GRU(
+    GRU_UNITS,
+    return_sequences=True
+))(embedded_sequences)
+                </code></pre>
+                <br>
+                <h3 class="mt-5 mb-4">The Process: A Step-by-Step Approach</h3>
+                
+                <p class="mb-4">
+                    <span class="text-accent-purple">Looking back at my own repository reminds me of the detailed, multi-step process <strong>we</strong> generally followed for NLP tasks back then:</span>
+                </p>
+                
+                <ol class="ml-4 my-4">
+                    <li class="mb-3"><strong class="text-accent-blue">Preprocessing Text</strong>: Tokenization, removing stop words, handling special characters—<em>the digital equivalent of washing vegetables before cooking.</em></li>
+                    <li class="mb-3"><strong class="text-accent-green">Converting Words to Vectors</strong>: Using pre-trained word embeddings like <strong>GloVe</strong> (this repo uses GloVe.42B.300d)—<em>teaching computers that "king - man + woman = queen," more or less.</em></li>
+                    <li class="mb-3"><strong class="text-accent-pink">Designing the Neural Network Architecture</strong>: Carefully selecting and arranging layers—<em>like building a fragile digital Jenga tower.</em></li>
+                    <li class="mb-3"><strong class="text-accent-purple">Training on Powerful Hardware</strong>: I remember being thrilled to use an AWS p3.8xlarge instance with CUDA9—<em>a game-changer for training times (and the AWS bill).</em></li>
+                    <li class="mb-3"><strong class="text-accent-orange">Evaluating on a Hold-Out Set</strong>: Using metrics like <strong>ROC AUC</strong> for multi-label classification—<em>the moment of truth.</em></li>
+                    <li class="mb-3"><strong class="text-accent-red">Iterating and Tuning</strong>: Adjusting hyperparameters, trying different architectures—<em>rinse and repeat until success or caffeine overdose.</em></li>
+                </ol>
+                
+                <p>
+                    Each of these steps required expertise, time, and computational resources. I certainly spent <strong>countless late nights</strong> fine-tuning these models, watching training logs scroll by, and celebrating the smallest accuracy bumps. <span class="text-accent-pink">The entire process could take days or even weeks</span>—<em>a far cry from today's "just prompt it" world.</em>
+                </p>
+                <br>
+                <h3 class="mt-5 mb-4">Fast Forward to 2025: My Experience with the GenAI Revolution</h3>
+                
+                <p class="mb-4">
+                    Now, let's contrast this with how <strong>we</strong> might approach the same problem today using generative AI <span class="text-accent-green">(spoiler: it involves significantly less code and fewer tears)</span>:
+                </p>
+                
+                <pre class="code-block my-4" aria-label="Python code example for modern approach"><code class="language-python">
+import openai
+
+# set up the openai client
+client = openai.OpenAI(api_key="your-api-key")
+
+# function to classify text
+def classify_toxicity(text):
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[
+            {"role": "system", "content": "you are a toxicity classifier. analyze the following comment and determine if it contains any of these categories: toxic, severe_toxic, obscene, threat, insult, identity_hate. return a json object with probabilities for each category."},
+            {"role": "user", "content": text}
+        ],
+        response_format={"type": "json_object"}
+    )
+    return response.choices[0].message.content
+
+# example usage
+comment = "this is an example comment to classify."
+result = classify_toxicity(comment)
+print(result)
+                </code></pre>
+                
+                <p>
+                    <strong>That's pretty much it.</strong> A few lines of code, no complex preprocessing, no embedding matrices, no intricate architecture design, no GPU training marathons. Just a simple API call to a pre-trained large language model (LLM) that has already learned from billions of examples. <em>My 2018 self would be both amazed and slightly offended by the simplicity.</em>
+                </p>
+                
+                <p>
+                    The contrast with my 2018 work is <span class="text-accent-purple">stark</span>. What used to require **our** specialized knowledge, custom architectures, and significant compute can now often be accomplished with a well-crafted prompt. I've witnessed this democratization of AI firsthand, and it's been nothing short of revolutionary—<em>though I admit, sometimes I miss the satisfaction (and frustration) of building everything from the ground up.</em>
+                </p>
+                <br>
+                <h3 class="mt-5 mb-4">Why Look Back?</h3>
+                
+                <p class="mb-4">
+                    So why bother looking back at these approaches from the not-so-distant past of 2018? <strong>Is it just nostalgia, or is there still value here?</strong> <em>(Spoiler: I think there is.)</em>
+                </p>
+                <p>
+                    For one, understanding the foundations of deep learning for NLP helps <strong>us</strong> appreciate the incredible progress <strong>we've</strong> made. <span class="text-accent-blue">The architectures <strong>we</strong> carefully designed back then were crucial stepping stones</span> leading to the transformer models powering today's LLMs. <em>It's like knowing how an internal combustion engine works even if you now drive an EV—it provides valuable context.</em>
+                </p>
+                
+                <p>
+                    Second, there's immense value in <strong>understanding how these models work "under the hood."</strong> The deep knowledge gained from building systems from scratch still gives **us** an edge when debugging, optimizing, or tackling niche problems where off-the-shelf solutions fall short. <em>When the magic black box misbehaves, knowing the mechanics is crucial.</em>
+                </p>
+                
+                <p>
+                    Finally, let's be real: not every problem needs (or can afford) a 175-billion-parameter LLM. For specific, well-defined tasks, especially with limited compute, these "old school" approaches might still be surprisingly relevant and efficient. <span class="text-accent-pink">Sometimes a finely tuned scalpel is better than a sledgehammer</span>—<em>especially when you're paying the cloud bill.</em>
+                </p>
+                <br>
+                <h3 class="mt-5 mb-4">Conclusion: Appreciating My Journey Through AI's Evolution</h3>
+                
+                <p class="mb-4">
+                    My <a href="https://github.com/chachamatcha/DL_Text_Classification" target="_blank" class="text-accent-blue link-underline-hover">dl_text_classification</a> repository is a fascinating time capsule from the pre-GenAI era. It showcases the kind of technical skill required back then to tackle NLP problems before the transformer revolution truly took hold. <strong>While I might chuckle at some of the complexity now</strong> compared to today's solutions, I'm still proud of the work done pushing the boundaries with the tools available.
+                </p>
+                
+                <p class="mb-4">
+                    These earlier approaches <strong>we</strong> worked on absolutely laid the groundwork for the AI explosion we're living through. They might seem quaint now, but they were essential steps. <span class="text-accent-purple">And who knows? In another seven years, <strong>we'll</strong> probably look back at today's methods with the same nostalgic smile.</span> That's the beauty (and sometimes the terror) of working in a field that evolves this fast—<em>yesterday's state-of-the-art is tomorrow's retro tech.</em>
+                </p>
+            </section>
+            
+            <footer class="mt-5">
+                <p class="mt-4 text-secondary">
+                    Tags:
+                    <a href="#" class="text-accent-blue animate-standard link-underline-hover mx-1" aria-label="View all posts tagged with deep-learning">deep-learning</a>,
+                    <a href="#" class="text-accent-green animate-standard link-underline-hover mx-1" aria-label="View all posts tagged with nlp">nlp</a>,
+                    <a href="#" class="text-accent-pink animate-standard link-underline-hover mx-1" aria-label="View all posts tagged with keras">keras</a>,
+                    <a href="#" class="text-accent-purple animate-standard link-underline-hover mx-1" aria-label="View all posts tagged with text-classification">text-classification</a>
+                </p>
+            </footer>
+        </article>
+    
+        <nav class="post-navigation flex-between p-standard mt-5" aria-label="Blog post navigation">
+            <a href="#previous-post" class="button-base button-small button-secondary animate-standard" aria-label="Go to previous blog post">&laquo; Previous Post</a>
+            <a href="../index.html" class="button-base button-small button-primary animate-standard mx-2" aria-label="Return to blog home page">Back to Blog Index</a>
+            <a href="#next-post" class="button-base button-small button-secondary animate-standard" aria-label="Go to next blog post">Next Post &raquo;</a>
+        </nav>
+    </main>
+
+    <footer class="border-top py-4 mt-5">
+        <div class="container-lg mx-auto flex-between">
+            <div class="footer-social flex-center gap-3">
+                <a href="https://github.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="GitHub Profile"><i class="fab fa-github icon-style" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/in/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="LinkedIn Profile"><i class="fab fa-linkedin icon-style" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/jdpaletto" target="_blank" rel="noopener noreferrer" class="social-icon interactive-element animate-standard" aria-label="Twitter Profile"><i class="fab fa-twitter icon-style" aria-hidden="true"></i></a>
+            </div>
+            <div class="footer-info">
+                <p class="text-secondary text-sm opacity-75">&copy; 2025 JD Paletto</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Add our new JavaScript for modern effects -->
+    <script src="../../js/modern-effects.js"></script>
+</body>
+</html>

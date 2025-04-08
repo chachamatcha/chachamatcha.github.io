@@ -25,30 +25,40 @@
 
     <!-- Background gradient animation - inspired by GitHub Copilot's site -->
     <div class="background-gradient"></div>
-<main>
-    <section id="hero" class="section-container animate-fadeIn text-center mb-5">
-        <h1 class="heading-accent text-gradient">MY BLOG</h1>
-        <h2 class="text-accent-purple">Insights & Perspectives</h2>
-        <p class="text-secondary mt-2 p-standard text-readable text-style-common">Read my thoughts on data science, machine learning, and the evolving technology landscape.</p>
-    </section>
+    
+    <main>
+        <section id="hero" class="section-container animate-fadeIn text-center mb-5">
+            <h1 class="heading-accent text-gradient">MY BLOG</h1>
+            <h2 class="text-accent-purple mt-3">Insights & Perspectives</h2>
+            <p class="text-secondary mt-3 p-standard text-readable text-style-common">Read my thoughts on data science, machine learning, and the evolving technology landscape.</p>
+        </section>
 
-    <section id="blog-posts" class="section-container">
-        <div class="section-heading">
-            <h2 class="heading-accent text-gradient">Latest Posts</h2>
-        </div>
+        <section id="blog-posts" class="section-container mt-5">
+            <div class="section-heading mb-4">
+                <h2 class="heading-accent text-gradient">Latest Posts</h2>
+            </div>
             <article class="blog-card card-style-common card-accent-purple shadow-md p-standard rounded-lg animate-standard hover-lift">
                 <div class="card-content">
-                    <h3 class="text-accent-purple"><a href="posts/example-post.html" class="link-hover-effect" aria-label="Read the full article: Example Post Title">[Example Post Title]</a></h3>
-                    <p class="post-date text-secondary text-sm"><em>Published on: [Date]</em></p>
-                    <p class="text-secondary mt-3 text-readable text-style-common">This is an example blog post to demonstrate the layout and styling. In a real blog, this would be a brief summary or excerpt from the full article, giving readers a preview of what to expect.</p>
-                    <a href="posts/example-post.html" class="button-base button-secondary interactive-element animate-standard mt-3" aria-label="Read full article about Example Post Title">Read More &raquo;</a>
+                    <h3 class="text-accent-purple mb-2"><a href="posts/dl-text-classification.html" class="link-hover-effect" aria-label="Read the full article: Old School Deep Learning for Text Classification: A Nostalgic Journey">Old School Deep Learning for Text Classification: A Nostalgic Journey</a></h3>
+                    <p class="post-date text-secondary text-sm"><em>Published on: April 8, 2025</em></p>
+                    <p class="text-secondary mt-3 mb-4 text-readable text-style-common">A look back at pre-GenAI deep learning approaches for text classification. Explore how we used to build complex neural architectures for NLP tasks and how they compare to today's large language models.</p>
+                    <a href="posts/dl-text-classification.html" class="button-base button-secondary interactive-element animate-standard mt-3" aria-label="Read full article about Old School Deep Learning for Text Classification">Read More &raquo;</a>
+                </div>
+            </article>
+            
+            <article class="blog-card card-style-common card-accent-purple shadow-md p-standard rounded-lg animate-standard hover-lift mt-5">
+                <div class="card-content">
+                    <h3 class="text-accent-purple mb-2"><a href="posts/example-post.html" class="link-hover-effect" aria-label="Read the full article: Machine Learning in Production">Machine Learning in Production</a></h3>
+                    <p class="post-date text-secondary text-sm"><em>Published on: April 2, 2025</em></p>
+                    <p class="text-secondary mt-3 mb-4 text-readable text-style-common">Exploring the challenges and best practices of deploying machine learning models to production environments. Learn about monitoring strategies, deployment patterns, and maintaining model performance over time.</p>
+                    <a href="posts/example-post.html" class="button-base button-secondary interactive-element animate-standard mt-3" aria-label="Read full article about Machine Learning in Production">Read More &raquo;</a>
                 </div>
             </article>
             <!-- Removed <hr class="divider"> -->
             <!-- Add more post summaries as needed -->
             <!-- Future blog posts will appear here -->
-    </section>
-</main>
+        </section>
+    </main>
 
     <footer class="border-top py-4 mt-5">
       <div class="container-lg mx-auto flex-between">
