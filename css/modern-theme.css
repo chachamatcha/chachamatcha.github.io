@@ -1,8 +1,18 @@
-/* 
+/*
  * Modern Theme CSS inspired by GitHub Copilot
  * Created: April 2025
  * Organization: Variables, Base, Utilities, Components, Sections, Animations, Media Queries
  */
+
+/* Ensure proper sizing for all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
 
 /*--------------------------------------------------------------
 # Variables
@@ -74,6 +84,8 @@ body {
   color: var(--color-text-primary);
   position: relative;
   overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
 }
 
 p {
@@ -167,6 +179,7 @@ pre {
   color: var(--color-text-primary);
   margin-top: var(--spacing-4); /* Reduced from spacing-6 */
   margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
+  font-size: 0.9em; /* Slightly smaller on mobile */
 }
 
 code {
@@ -183,6 +196,7 @@ pre code {
   padding: 0;
   border-radius: 0;
   color: inherit;
+  font-size: 0.85em; /* Better readability on mobile */
 }
 
 hr {
@@ -208,6 +222,8 @@ header {
   top: 0;
   z-index: 100;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 header h2 {
@@ -616,6 +632,8 @@ footer {
   padding: var(--spacing-4); /* Reduced from spacing-6 */
   max-width: 960px;
   margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .container-sm {
@@ -623,6 +641,8 @@ footer {
   margin: 0 auto;
   padding: var(--spacing-4); /* Reduced from spacing-6 */
   margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .container-lg {
@@ -630,6 +650,8 @@ footer {
   padding: var(--spacing-4); /* Reduced from spacing-6 */
   max-width: 1200px;
   margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Misc utilities */
@@ -806,11 +828,13 @@ footer {
   flex-direction: column;
   height: auto;
   max-height: 450px; /* Limit maximum height to make cards less elongated */
+  width: 100%;
 }
 
 .project-image {
   height: 150px; /* Reduced from 180px to make cards less elongated */
   overflow: hidden;
+  width: 100%;
 }
 
 .project-image img {
@@ -1071,10 +1095,12 @@ footer {
 /* Main section containers */
 main {
   max-width: 1060px;
+  width: 100%;
   margin: 0 auto;
   padding: var(--spacing-4); /* Reduced from spacing-6 */
   margin-top: var(--spacing-6); /* Reduced from spacing-section */
   margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
+  box-sizing: border-box;
 }
 
 .section-container {
@@ -1106,6 +1132,8 @@ main {
   overflow: hidden;
   margin-bottom: var(--spacing-6); /* Reduced from spacing-section */
   margin-top: var(--spacing-6); /* Reduced from spacing-section */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #hero::after {
@@ -1130,6 +1158,8 @@ main {
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 0 0 20px rgba(105, 64, 201, 0.2);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 #hero h2 {
@@ -1393,11 +1423,18 @@ main {
   margin: 0 auto;
   padding: var(--spacing-4); /* Reduced from spacing-6 */
   line-height: 1.6; /* Reduced from 1.8 */
+  width: 100%;
 }
 .blog-post-content p {
   margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
   line-height: 1.6; /* Reduced from 1.8 */
   margin-top: var(--spacing-2); /* Reduced from spacing-3 */
+}
+
+/* Code block enhancements for mobile */
+pre {
+  white-space: pre-wrap; /* Allow code to wrap on small screens */
+  word-break: break-word; /* Break long words that would overflow */
 }
 
 /* Added styles to make project cards more compact */
@@ -1413,6 +1450,43 @@ main {
 .blog-post-content p + p {
   margin-top: var(--spacing-2); /* Reduced from spacing-3 */
   margin-bottom: var(--spacing-4); /* Reduced from spacing-6 */
+}
+
+/* Post navigation */
+.post-navigation {
+  margin-top: var(--spacing-4);
+  margin-bottom: var(--spacing-6);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .post-navigation {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .post-navigation a {
+    width: 100%;
+    text-align: center;
+    margin-bottom: var(--spacing-2);
+  }
+  
+  /* Improve blog content readability on small screens */
+  .blog-post-content {
+    padding: var(--spacing-3);
+  }
+  
+  pre {
+    padding: var(--spacing-3);
+    font-size: 0.85em;
+  }
+  
+  pre code {
+    font-size: 0.85em;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1523,11 +1597,13 @@ main {
   
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-3);
   }
   
   .project-card {
     max-width: 450px;
     margin: 0 auto;
+    width: 100%;
   }
   
   #hero h1 {
@@ -1537,6 +1613,142 @@ main {
   .footer-container {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* Additional media query for very small screens (iPhone SE, etc.) */
+@media (max-width: 480px) {
+  /* Header and navigation adjustments */
+  header {
+    padding: var(--spacing-2) var(--spacing-2);
+  }
+  
+  header h2 {
+    font-size: 1.2em; /* Smaller font size for very small screens */
+    margin-bottom: 0.5rem;
+  }
+  
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-1);
+  }
+  
+  nav ul li {
+    margin-left: var(--spacing-1);
+    margin-right: var(--spacing-1);
+  }
+  
+  nav a {
+    padding: var(--spacing-1) var(--spacing-1);
+    font-size: 0.85em;
+    min-width: auto;
+  }
+  
+  /* Content sizing */
+  .container, .container-lg, .container-sm {
+    padding: var(--spacing-3);
+  }
+  
+  /* Hero section */
+  #hero {
+    padding: var(--spacing-4) var(--spacing-3);
+  }
+  
+  #hero h1 {
+    font-size: 2em;
+  }
+  
+  #hero h2 {
+    font-size: 1.2em;
+  }
+  
+  #hero p {
+    padding: 0 var(--spacing-2);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .button-base {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  /* Project cards */
+  .project-card {
+    min-width: 100%;
+    margin-bottom: var(--spacing-3);
+  }
+  
+  .card-content {
+    padding: var(--spacing-2);
+  }
+  
+  /* Code blocks in blog posts */
+  pre, code {
+    font-size: 0.8em;
+    padding: var(--spacing-1);
+    max-width: 100%;
+    overflow-x: auto;
+    word-break: normal;
+    word-wrap: normal;
+  }
+  
+  /* Skills section */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2);
+  }
+  
+  .skill-card {
+    width: 100%;
+  }
+  
+  /* Footer adjustments */
+  .footer-social {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Extra small screens (iPhone SE, etc) */
+@media (max-width: 375px) {
+  /* Further optimize header */
+  header h2 {
+    font-size: 1em;
+  }
+  
+  nav ul {
+    gap: var(--spacing-1);
+  }
+  
+  nav a {
+    padding: var(--spacing-1) var(--spacing-1);
+    font-size: 0.8em;
+  }
+  
+  #hero h1 {
+    font-size: 1.8em;
+  }
+  
+  #hero h2 {
+    font-size: 1.1em;
+  }
+  
+  /* Make buttons more compact */
+  .button-base {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: 0.9em;
+  }
+  
+  /* Adjust spacing */
+  .container, .container-lg, .container-sm {
+    padding: var(--spacing-2);
   }
 }
 
