@@ -1,31 +1,73 @@
 // Skills visualization and interaction functionality
 document.addEventListener('DOMContentLoaded', function() {
-  // Handle tab switching
+  // Enhanced tab switching with animations
   const tabs = document.querySelectorAll('.skill-tab');
-  const skillSets = document.querySelectorAll('.skills-honeycomb');
+  const skillSets = document.querySelectorAll('.skills-grid');
 
   tabs.forEach(tab => {
     tab.addEventListener('click', function() {
+      // If already active, do nothing
+      if (this.classList.contains('active')) return;
+      
       // Remove active class from all tabs
       tabs.forEach(t => t.classList.remove('active'));
 
-      // Add active class to clicked tab
+      // Add active class to clicked tab with smooth animation
       this.classList.add('active');
 
-      // Hide all skill sets
-      skillSets.forEach(set => set.classList.remove('active'));
-
-      // Show the corresponding skill set
+      // Get the target skill set
       const category = this.getAttribute('data-category');
-      document.getElementById(`${category}-skills`).classList.add('active');
+      const targetSkillSet = document.getElementById(`${category}-skills`);
+      
+      if (!targetSkillSet) return; // Safety check
+      
+      // Hide currently visible skill set with transition
+      const currentActiveSet = document.querySelector('.skills-grid.active');
+      if (currentActiveSet) {
+        currentActiveSet.style.opacity = '0';
+        currentActiveSet.style.transform = 'translateY(20px)';
+        currentActiveSet.style.pointerEvents = 'none';
+        
+        // After transition completes, remove active class
+        setTimeout(() => {
+          currentActiveSet.classList.remove('active');
+          
+          // Show the new skill set with animation
+          targetSkillSet.classList.add('active');
+          setTimeout(() => {
+            targetSkillSet.style.opacity = '1';
+            targetSkillSet.style.transform = 'translateY(0)';
+            targetSkillSet.style.pointerEvents = 'auto';
+            targetSkillSet.style.alignSelf = 'center';
+            targetSkillSet.style.margin = '0 auto';
+            
+            // Apply staggered animations to the cards in the new active set
+            const cards = targetSkillSet.querySelectorAll('.skill-card');
+            cards.forEach((card, index) => {
+              card.style.animation = 'none';
+              card.offsetHeight; // Force reflow
+              card.style.setProperty('--card-index', index);
+              card.style.animation = `fadeInUp 0.5s forwards ${index * 0.1}s`;
+            });
+          }, 50); // Small delay for smoother transition
+        }, 300); // Match this to the CSS transition time
+      } else {
+        // If no current active set, just show the new one
+        targetSkillSet.classList.add('active');
+        targetSkillSet.style.opacity = '1';
+        targetSkillSet.style.transform = 'translateY(0)';
+        targetSkillSet.style.pointerEvents = 'auto';
+        targetSkillSet.style.alignSelf = 'center';
+        targetSkillSet.style.margin = '0 auto';
+      }
     });
   });
 
-  // Add hover effects and interactions for hexagons
-  const hexagons = document.querySelectorAll('.hexagon');
+  // Add hover effects and interactions for skill cards
+  const skillCards = document.querySelectorAll('.skill-card');
 
-  hexagons.forEach(hex => {
-    hex.addEventListener('mouseenter', function() {
+  skillCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
       // Show tooltip
       const tooltip = this.querySelector('.skill-tooltip');
       if (tooltip) {
@@ -45,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    hex.addEventListener('mouseleave', function() {
+    card.addEventListener('mouseleave', function() {
       // Hide tooltip
       const tooltip = this.querySelector('.skill-tooltip');
       if (tooltip) {
@@ -55,28 +97,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Simplified animation for hexagons - all appear at once on scroll
-  function animateHexagons() {
-    const hexWrappers = document.querySelectorAll('.hexagon-wrapper');
-    const container = document.querySelector('.skills-honeycomb-container');
+  // Enhanced animation for skill cards with staggered effects
+  function animateSkillCards() {
+    const skillCards = document.querySelectorAll('.skill-card');
+    const container = document.querySelector('.skills-grid-container');
 
     if (!container) return; // Exit if container not found
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          hexWrappers.forEach(wrapper => {
-            // Apply initial state if not already visible
-            if (wrapper.style.opacity !== '1') {
-              wrapper.style.opacity = '0'; // Ensure initial state is hidden
-              wrapper.style.transform = 'scale(0.8)'; // Start smaller
-            }
-            // Trigger animation
-            setTimeout(() => { // Add slight delay for effect
-              wrapper.style.opacity = '1';
-              wrapper.style.transform = 'scale(1)'; // Scale to final size
-            }, 100); // Adjust delay as needed
-          });
+          // Apply staggered animations to cards in the active grid
+          const activeGrid = document.querySelector('.skills-grid.active');
+          if (activeGrid) {
+            const cards = activeGrid.querySelectorAll('.skill-card');
+            cards.forEach((card, index) => {
+              // Reset any previous animations
+              card.style.animation = 'none';
+              card.offsetHeight; // Force reflow
+              
+              // Set custom property for staggered animation delay
+              card.style.setProperty('--card-index', index);
+              
+              // Apply the animation
+              card.style.animation = `fadeInUp 0.5s forwards ${index * 0.1}s`;
+            });
+          }
+          
           observer.unobserve(entry.target); // Stop observing once animated
         }
       });
@@ -85,5 +132,33 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(container);
   }
 
-  animateHexagons();
+  // Initialize by activating the first tab and its skill set
+  function initializeSkills() {
+    // If no tab is active, activate the first one
+    const tabs = document.querySelectorAll('.skill-tab');
+    const skillSets = document.querySelectorAll('.skills-grid');
+    
+    if (tabs.length > 0 && !document.querySelector('.skill-tab.active')) {
+      tabs[0].classList.add('active');
+      
+      // Show the corresponding skill set
+      const category = tabs[0].getAttribute('data-category');
+      const targetSkillSet = document.getElementById(`${category}-skills`);
+      if (targetSkillSet) {
+        skillSets.forEach(set => set.classList.remove('active'));
+        targetSkillSet.classList.add('active');
+        targetSkillSet.style.opacity = '1';
+        targetSkillSet.style.transform = 'translateY(0)';
+        targetSkillSet.style.pointerEvents = 'auto';
+        targetSkillSet.style.alignSelf = 'center';
+        targetSkillSet.style.margin = '0 auto';
+      }
+    }
+    
+    // Initialize animations
+    animateSkillCards();
+  }
+
+  // Run initialization
+  initializeSkills();
 });
