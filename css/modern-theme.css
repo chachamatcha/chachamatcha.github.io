@@ -1217,7 +1217,7 @@ main {
 .skills-grid-container {
   margin-top: var(--spacing-4);
   position: relative;
-  min-height: 450px; /* Reduced height for better spacing */
+  min-height: 400px; /* Further reduced height for mobile */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1283,8 +1283,10 @@ main {
   opacity: 0;
   animation: fadeInUp 0.5s forwards;
   animation-delay: calc(var(--card-index, 0) * 0.1s);
-  height: 150px; /* Fixed height for consistency */
-  width: 180px; /* Fixed width for better grid alignment */
+  height: auto; /* Auto height for responsiveness */
+  min-height: 140px; /* Minimum height */
+  width: 100%; /* Full width for small screens */
+  max-width: 180px; /* Maximum width for larger screens */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1307,7 +1309,7 @@ main {
 }
 
 .skill-card-inner {
-  padding: var(--spacing-4);
+  padding: var(--spacing-3);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1587,12 +1589,14 @@ pre {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-3);
+    justify-content: center;
   }
   
   .skill-card {
     width: auto;
     height: auto;
-    min-height: 150px;
+    min-height: 140px;
+    max-width: 100%;
   }
   
   .projects-grid {
@@ -1701,12 +1705,17 @@ pre {
   
   /* Skills section */
   .skills-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-2);
   }
   
   .skill-card {
     width: 100%;
+    min-height: 130px;
+  }
+  
+  .skill-card-inner {
+    padding: var(--spacing-2);
   }
   
   /* Footer adjustments */
@@ -1749,6 +1758,38 @@ pre {
   /* Adjust spacing */
   .container, .container-lg, .container-sm {
     padding: var(--spacing-2);
+  }
+  
+  /* Skills grid for very small screens */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2);
+  }
+  
+  .skills-grid-container {
+    min-height: 650px;
+  }
+  
+  .skill-card {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+  
+  .skill-tooltip {
+    padding: var(--spacing-2);
+    font-size: 0.75em;
+  }
+  
+  /* Adjust skill tabs */
+  .skills-tabs {
+    flex-direction: column;
+    gap: var(--spacing-2);
+    align-items: center;
+  }
+  
+  .skill-tab {
+    width: 100%;
+    max-width: 240px;
   }
 }
 
